@@ -267,6 +267,7 @@
             TypesDGV.RowHeadersWidth = 51;
             TypesDGV.Size = new Size(1064, 440);
             TypesDGV.TabIndex = 8;
+            TypesDGV.CellContentClick += TypesDGV_CellContentClick;
             // 
             // label10
             // 

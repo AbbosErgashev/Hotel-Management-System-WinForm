@@ -62,7 +62,7 @@
             DeleteBtn = new Button();
             SaveBtn = new Button();
             EditBtn = new Button();
-            RoomDGV = new DataGridView();
+            RoomsDGV = new DataGridView();
             label10 = new Label();
             label4 = new Label();
             RnameTb = new TextBox();
@@ -91,7 +91,7 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RoomsDGV).BeginInit();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
@@ -410,7 +410,7 @@
             panel2.Controls.Add(DeleteBtn);
             panel2.Controls.Add(SaveBtn);
             panel2.Controls.Add(EditBtn);
-            panel2.Controls.Add(RoomDGV);
+            panel2.Controls.Add(RoomsDGV);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(RnameTb);
@@ -430,6 +430,7 @@
             DeleteBtn.TabIndex = 11;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = true;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // SaveBtn
             // 
@@ -449,15 +450,17 @@
             EditBtn.TabIndex = 9;
             EditBtn.Text = "Edit";
             EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += EditBtn_Click;
             // 
-            // RoomDGV
+            // RoomsDGV
             // 
-            RoomDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RoomDGV.Location = new Point(0, 326);
-            RoomDGV.Name = "RoomDGV";
-            RoomDGV.RowHeadersWidth = 51;
-            RoomDGV.Size = new Size(1064, 440);
-            RoomDGV.TabIndex = 8;
+            RoomsDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            RoomsDGV.Location = new Point(0, 326);
+            RoomsDGV.Name = "RoomsDGV";
+            RoomsDGV.RowHeadersWidth = 51;
+            RoomsDGV.Size = new Size(1064, 440);
+            RoomsDGV.TabIndex = 8;
+            RoomsDGV.CellContentClick += RoomsDGV_CellContentClick;
             // 
             // label10
             // 
@@ -484,7 +487,6 @@
             RnameTb.Name = "RnameTb";
             RnameTb.Size = new Size(313, 31);
             RnameTb.TabIndex = 3;
-            RnameTb.TextChanged += RoomTb;
             // 
             // StatusTb
             // 
@@ -581,7 +583,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RoomsDGV).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
@@ -605,7 +607,7 @@
         private Button DeleteBtn;
         private Button SaveBtn;
         private Button EditBtn;
-        private DataGridView RoomDGV;
+        private DataGridView RoomsDGV;
         private Label label10;
         private Label label4;
         private TextBox RnameTb;
