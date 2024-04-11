@@ -59,6 +59,8 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label14 = new Label();
+            RId = new TextBox();
             DeleteBtn = new Button();
             SaveBtn = new Button();
             EditBtn = new Button();
@@ -407,6 +409,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label14);
+            panel2.Controls.Add(RId);
             panel2.Controls.Add(DeleteBtn);
             panel2.Controls.Add(SaveBtn);
             panel2.Controls.Add(EditBtn);
@@ -421,6 +425,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(97, 121);
+            label14.Name = "label14";
+            label14.Size = new Size(32, 25);
+            label14.TabIndex = 13;
+            label14.Text = "Id:";
+            // 
+            // RId
+            // 
+            RId.Location = new Point(144, 118);
+            RId.Name = "RId";
+            RId.Size = new Size(64, 31);
+            RId.TabIndex = 0;
             // 
             // DeleteBtn
             // 
@@ -475,7 +495,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(94, 121);
+            label4.Location = new Point(249, 120);
             label4.Name = "label4";
             label4.Size = new Size(63, 25);
             label4.TabIndex = 4;
@@ -483,10 +503,10 @@
             // 
             // RnameTb
             // 
-            RnameTb.Location = new Point(159, 117);
+            RnameTb.Location = new Point(314, 116);
             RnameTb.Name = "RnameTb";
-            RnameTb.Size = new Size(313, 31);
-            RnameTb.TabIndex = 3;
+            RnameTb.Size = new Size(198, 31);
+            RnameTb.TabIndex = 1;
             // 
             // StatusTb
             // 
@@ -495,7 +515,7 @@
             StatusTb.Location = new Point(732, 115);
             StatusTb.Name = "StatusTb";
             StatusTb.Size = new Size(151, 33);
-            StatusTb.TabIndex = 2;
+            StatusTb.TabIndex = 3;
             StatusTb.Text = "Status";
             // 
             // RTypeCb
@@ -505,7 +525,7 @@
             RTypeCb.Location = new Point(525, 115);
             RTypeCb.Name = "RTypeCb";
             RTypeCb.Size = new Size(151, 33);
-            RTypeCb.TabIndex = 1;
+            RTypeCb.TabIndex = 2;
             RTypeCb.Text = "Room types";
             // 
             // panel12
@@ -634,5 +654,7 @@
         private Panel panel12;
         private PictureBox pictureBox10;
         private Label label13;
+        private Label label14;
+        private TextBox RId;
     }
 }
