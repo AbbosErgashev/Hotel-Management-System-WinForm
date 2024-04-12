@@ -41,6 +41,8 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label12 = new Label();
+            TId = new TextBox();
             label11 = new Label();
             CostTb = new TextBox();
             DeleteBtn = new Button();
@@ -200,6 +202,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label12);
+            panel2.Controls.Add(TId);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(CostTb);
             panel2.Controls.Add(DeleteBtn);
@@ -214,6 +218,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(126, 123);
+            label12.Name = "label12";
+            label12.Size = new Size(28, 25);
+            label12.TabIndex = 15;
+            label12.Text = "Id";
+            // 
+            // TId
+            // 
+            TId.Location = new Point(160, 120);
+            TId.Name = "TId";
+            TId.Size = new Size(69, 31);
+            TId.TabIndex = 14;
             // 
             // label11
             // 
@@ -239,6 +259,7 @@
             DeleteBtn.TabIndex = 11;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = true;
+            DeleteBtn.Click += DeleteBtn_Click_1;
             // 
             // SaveBtn
             // 
@@ -258,6 +279,7 @@
             EditBtn.TabIndex = 9;
             EditBtn.Text = "Edit";
             EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += EditBtn_Click_1;
             // 
             // TypesDGV
             // 
@@ -267,7 +289,6 @@
             TypesDGV.RowHeadersWidth = 51;
             TypesDGV.Size = new Size(1064, 440);
             TypesDGV.TabIndex = 8;
-            TypesDGV.CellContentClick += TypesDGV_CellContentClick;
             // 
             // label10
             // 
@@ -282,7 +303,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(16, 120);
+            label4.Location = new Point(291, 118);
             label4.Name = "label4";
             label4.Size = new Size(137, 25);
             label4.TabIndex = 4;
@@ -290,9 +311,9 @@
             // 
             // TypeNameTb
             // 
-            TypeNameTb.Location = new Point(159, 117);
+            TypeNameTb.Location = new Point(434, 115);
             TypeNameTb.Name = "TypeNameTb";
-            TypeNameTb.Size = new Size(313, 31);
+            TypeNameTb.Size = new Size(115, 31);
             TypeNameTb.TabIndex = 3;
             // 
             // panel4
@@ -326,6 +347,7 @@
             label3.Size = new Size(85, 31);
             label3.TabIndex = 0;
             label3.Text = "Rooms";
+            label3.Click += label3_Click;
             // 
             // panel7
             // 
@@ -499,5 +521,7 @@
         private Label label11;
         private TextBox CostTb;
         private PictureBox pictureBox2;
+        private Label label12;
+        private TextBox TId;
     }
 }

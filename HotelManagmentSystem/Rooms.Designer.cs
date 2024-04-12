@@ -35,7 +35,7 @@
             label3 = new Label();
             panel5 = new Panel();
             pictureBox2 = new PictureBox();
-            label9 = new Label();
+            categoriesClick = new Label();
             panel10 = new Panel();
             pictureBox8 = new PictureBox();
             label11 = new Label();
@@ -149,7 +149,7 @@
             // 
             panel5.BackColor = Color.White;
             panel5.Controls.Add(pictureBox2);
-            panel5.Controls.Add(label9);
+            panel5.Controls.Add(categoriesClick);
             panel5.Location = new Point(0, 212);
             panel5.Name = "panel5";
             panel5.Size = new Size(226, 55);
@@ -165,16 +165,17 @@
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
             // 
-            // label9
+            // categoriesClick
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(56, 11);
-            label9.Name = "label9";
-            label9.Size = new Size(125, 31);
-            label9.TabIndex = 6;
-            label9.Text = "Categories";
+            categoriesClick.AutoSize = true;
+            categoriesClick.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            categoriesClick.ForeColor = Color.Black;
+            categoriesClick.Location = new Point(56, 11);
+            categoriesClick.Name = "categoriesClick";
+            categoriesClick.Size = new Size(125, 31);
+            categoriesClick.TabIndex = 6;
+            categoriesClick.Text = "Categories";
+            categoriesClick.Click += categoriesClick_Click;
             // 
             // panel10
             // 
@@ -480,7 +481,6 @@
             RoomsDGV.RowHeadersWidth = 51;
             RoomsDGV.Size = new Size(1064, 440);
             RoomsDGV.TabIndex = 8;
-            RoomsDGV.CellContentClick += RoomsDGV_CellContentClick;
             // 
             // label10
             // 
@@ -615,7 +615,7 @@
         private Panel panel1;
         private Panel panel5;
         private PictureBox pictureBox2;
-        private Label label9;
+        private Label categoriesClick;
         private Panel panel6;
         private PictureBox pictureBox6;
         private Label label8;

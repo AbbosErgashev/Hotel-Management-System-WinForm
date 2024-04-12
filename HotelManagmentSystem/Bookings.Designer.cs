@@ -62,15 +62,17 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            textBox1 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox2 = new ComboBox();
-            textBox2 = new TextBox();
-            button2 = new Button();
-            button1 = new Button();
+            AmountTb = new TextBox();
+            BDateTime = new DateTimePicker();
+            RoomCb = new ComboBox();
+            DurationTb = new TextBox();
+            CancelBtn = new Button();
+            BookBtn = new Button();
+            BookingDGV = new DataGridView();
             label10 = new Label();
-            comboBox1 = new ComboBox();
-            RoomDGV = new DataGridView();
+            CustomerCb = new ComboBox();
+            label4 = new Label();
+            BId = new TextBox();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -93,7 +95,7 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BookingDGV).BeginInit();
             SuspendLayout();
             // 
             // panel12
@@ -439,70 +441,86 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(dateTimePicker1);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(RoomDGV);
+            panel2.Controls.Add(BId);
+            panel2.Controls.Add(label4);
+            panel2.Controls.Add(AmountTb);
+            panel2.Controls.Add(BDateTime);
+            panel2.Controls.Add(RoomCb);
+            panel2.Controls.Add(DurationTb);
+            panel2.Controls.Add(CancelBtn);
+            panel2.Controls.Add(BookBtn);
+            panel2.Controls.Add(BookingDGV);
             panel2.Controls.Add(label10);
-            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(CustomerCb);
             panel2.Location = new Point(224, 105);
             panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
-            // textBox1
+            // AmountTb
             // 
-            textBox1.Location = new Point(825, 129);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(94, 31);
-            textBox1.TabIndex = 16;
-            textBox1.Text = "Amount";
+            AmountTb.Enabled = false;
+            AmountTb.Location = new Point(825, 129);
+            AmountTb.Name = "AmountTb";
+            AmountTb.Size = new Size(94, 31);
+            AmountTb.TabIndex = 16;
+            AmountTb.Text = "Amount";
             // 
-            // dateTimePicker1
+            // BDateTime
             // 
-            dateTimePicker1.Location = new Point(459, 129);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(208, 31);
-            dateTimePicker1.TabIndex = 15;
+            BDateTime.Location = new Point(459, 129);
+            BDateTime.Name = "BDateTime";
+            BDateTime.Size = new Size(208, 31);
+            BDateTime.TabIndex = 15;
             // 
-            // comboBox2
+            // RoomCb
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(68, 129);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 33);
-            comboBox2.TabIndex = 14;
-            comboBox2.Text = "Room";
+            RoomCb.FormattingEnabled = true;
+            RoomCb.Location = new Point(68, 129);
+            RoomCb.Name = "RoomCb";
+            RoomCb.Size = new Size(151, 33);
+            RoomCb.TabIndex = 14;
+            RoomCb.Text = "Room";
+            RoomCb.SelectionChangeCommitted += RoomCb_SelectionChangeCommitted;
             // 
-            // textBox2
+            // DurationTb
             // 
-            textBox2.Location = new Point(699, 129);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(94, 31);
-            textBox2.TabIndex = 12;
-            textBox2.Text = "Duration";
+            DurationTb.Location = new Point(699, 129);
+            DurationTb.Name = "DurationTb";
+            DurationTb.Size = new Size(94, 31);
+            DurationTb.TabIndex = 12;
+            DurationTb.Text = "Duration";
+            DurationTb.TextChanged += DurationCb_TextChanged;
             // 
-            // button2
+            // CancelBtn
             // 
-            button2.Location = new Point(587, 211);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 49);
-            button2.TabIndex = 10;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
+            CancelBtn.Location = new Point(587, 211);
+            CancelBtn.Name = "CancelBtn";
+            CancelBtn.Size = new Size(125, 49);
+            CancelBtn.TabIndex = 10;
+            CancelBtn.Text = "Cancel";
+            CancelBtn.UseVisualStyleBackColor = true;
+            CancelBtn.Click += CancelBtn_Click;
             // 
-            // button1
+            // BookBtn
             // 
-            button1.Location = new Point(360, 211);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 49);
-            button1.TabIndex = 9;
-            button1.Text = "Book";
-            button1.UseVisualStyleBackColor = true;
+            BookBtn.Location = new Point(360, 211);
+            BookBtn.Name = "BookBtn";
+            BookBtn.Size = new Size(125, 49);
+            BookBtn.TabIndex = 9;
+            BookBtn.Text = "Book";
+            BookBtn.UseVisualStyleBackColor = true;
+            BookBtn.Click += BookBtn_Click;
+            // 
+            // BookingDGV
+            // 
+            BookingDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BookingDGV.Location = new Point(0, 326);
+            BookingDGV.Name = "BookingDGV";
+            BookingDGV.RowHeadersWidth = 51;
+            BookingDGV.Size = new Size(1064, 440);
+            BookingDGV.TabIndex = 8;
             // 
             // label10
             // 
@@ -514,23 +532,30 @@
             label10.TabIndex = 7;
             label10.Text = "Manage Booking";
             // 
-            // comboBox1
+            // CustomerCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(275, 129);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 1;
-            comboBox1.Text = "Customer";
+            CustomerCb.FormattingEnabled = true;
+            CustomerCb.Location = new Point(275, 129);
+            CustomerCb.Name = "CustomerCb";
+            CustomerCb.Size = new Size(151, 33);
+            CustomerCb.TabIndex = 1;
+            CustomerCb.Text = "Customer";
             // 
-            // RoomDGV
+            // label4
             // 
-            RoomDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RoomDGV.Location = new Point(0, 326);
-            RoomDGV.Name = "RoomDGV";
-            RoomDGV.RowHeadersWidth = 51;
-            RoomDGV.Size = new Size(1064, 440);
-            RoomDGV.TabIndex = 8;
+            label4.AutoSize = true;
+            label4.Location = new Point(75, 219);
+            label4.Name = "label4";
+            label4.Size = new Size(28, 25);
+            label4.TabIndex = 17;
+            label4.Text = "Id";
+            // 
+            // BId
+            // 
+            BId.Location = new Point(109, 217);
+            BId.Name = "BId";
+            BId.Size = new Size(88, 31);
+            BId.TabIndex = 18;
             // 
             // Bookings
             // 
@@ -578,7 +603,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BookingDGV).EndInit();
             ResumeLayout(false);
         }
 
@@ -617,14 +642,16 @@
         private Label label2;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox2;
-        private Button button2;
-        private Button button1;
+        private TextBox DurationTb;
+        private Button CancelBtn;
+        private Button BookBtn;
         private Label label10;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox2;
-        private TextBox textBox1;
-        private DataGridView RoomDGV;
+        private ComboBox CustomerCb;
+        private DateTimePicker BDateTime;
+        private ComboBox RoomCb;
+        private TextBox AmountTb;
+        private DataGridView BookingDGV;
+        private Label label4;
+        private TextBox BId;
     }
 }

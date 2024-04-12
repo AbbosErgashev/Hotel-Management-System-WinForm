@@ -1,7 +1,5 @@
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Data.SqlClient;
-using System.Windows.Forms;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace HotelManagmentSystem
 {
@@ -10,10 +8,23 @@ namespace HotelManagmentSystem
         public Types()
         {
             InitializeComponent();
-            populate();
+            Populate();
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=ACER;Initial Catalog=HotelDB;Integrated Security=True;Encrypt=False");
+
+        private void Populate()
+        {
+            Con.Open();
+            string Query = "select * from TypeTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            TypesDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
         private void InsertCategories()
         {
             if (TypeNameTb.Text == "" || CostTb.Text == "")
@@ -31,44 +42,81 @@ namespace HotelManagmentSystem
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Categories Added");
                     Con.Close();
-                    populate();
+                    Populate();
                 }
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
                 }
             }
-
         }
 
-        private void populate()
+        private void EditCategories()
         {
-            Con.Open();
-            string Query = "select * from TypeTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            TypesDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            if (TId.Text == "" || TypeNameTb.Text == "" || CostTb.Text == "")
+            {
+                MessageBox.Show("Missing Information!!!");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("update TypeTbl set TypeName=@TN, TypeCost=@TC where TypeNum=@TypeNum", Con);
+                    cmd.Parameters.AddWithValue("@TN", TypeNameTb.Text);
+                    cmd.Parameters.AddWithValue(@"TC", CostTb.Text);
+                    cmd.Parameters.AddWithValue(@"TypeNum", int.Parse(TId.Text));
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Category Updated");
+                    Con.Close();
+                    Populate();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
         }
+
+        private void DeleteCategories()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("delete from TypeTbl where TypeNum=@TypeNum", Con);
+                cmd.Parameters.AddWithValue("@TypeNum", int.Parse(TId.Text));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Category Deleted");
+                Con.Close();
+                Populate();
+            }
+            catch
+            {
+                MessageBox.Show("Select a Category!!!");
+                Con.Close();
+            }
+        }
+
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             InsertCategories();
         }
-        int Key = 0;
-        private void TypesDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void EditBtn_Click_1(object sender, EventArgs e)
         {
-            TypeNameTb.Text = TypesDGV.SelectedRows[0].Cells[1].Value.ToString();
-            CostTb.Text = TypesDGV.SelectedRows[0].Cells[2].Value.ToString();
-            if (TypesDGV.Text == "")
-            {
-                Key = 0;
-            }
-            else
-            {
-                Key = Convert.ToInt32(TypesDGV.SelectedRows[0].Cells[0].Value.ToString());
-            }
+            EditCategories();
+        }
+
+        private void DeleteBtn_Click_1(object sender, EventArgs e)
+        {
+            DeleteCategories();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Rooms obj = new Rooms();
+            obj.Show();
+            this.Hide();
         }
     }
 }

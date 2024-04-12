@@ -7,7 +7,7 @@ namespace HotelManagmentSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Rooms());
+            Application.Run(new Bookings());
         }
     }
 }
