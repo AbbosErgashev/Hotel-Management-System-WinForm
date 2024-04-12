@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
 
 namespace HotelManagmentSystem
 {
@@ -41,6 +40,63 @@ namespace HotelManagmentSystem
             CustomerCb.ValueMember = "CustNum";
             CustomerCb.DataSource = dt;
             Con.Close();
+        }
+
+        private void DeleteBookings()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("delete from BookingTbl where BookNum = @BookNum", Con);
+                cmd.Parameters.AddWithValue("@BookNum", int.Parse(BId.Text));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Booking Cancelled");
+                Con.Close();
+                Populate();
+            }
+            catch
+            {
+                MessageBox.Show("Select a Room!!!");
+                Con.Close();
+            }
+        }
+
+        private void SetBooked()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("update RoomTbl set RStatus=@RS where RNum=@RNum", Con);
+                cmd.Parameters.AddWithValue("@RS", "Booked");
+                cmd.Parameters.AddWithValue("@RNum", RoomCb.SelectedValue.ToString());
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Room Booked");
+                Con.Close();
+                Populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SetAviable()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("update RoomTbl set RStatus=@RS where RNum=@RoomNum", Con);
+                cmd.Parameters.AddWithValue("@RS", "Aviable");
+                cmd.Parameters.AddWithValue("@RoomNum", RoomCb.Text);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Room Updated");
+                Con.Close();
+                Populate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void FetchCost()
@@ -98,63 +154,6 @@ namespace HotelManagmentSystem
             sda.Fill(ds);
             BookingDGV.DataSource = ds.Tables[0];
             Con.Close();
-        }
-
-        private void DeleteBookings()
-        {
-            try
-            {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("delete from BookingTbl where BookNum = @BookNum", Con);
-                cmd.Parameters.AddWithValue("@BookNum", int.Parse(BId.Text));
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Booking Cancelled");
-                Con.Close();
-                Populate();
-            }
-            catch
-            {
-                MessageBox.Show("Select a Room!!!");
-                Con.Close();
-            }
-        }
-
-        private void SetBooked()
-        {
-            try
-            {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("update RoomTbl set RStatus=@RS where RNum=@RNum", Con);
-                cmd.Parameters.AddWithValue("@RS", "Booked");
-                cmd.Parameters.AddWithValue("@RNum", RoomCb.SelectedValue.ToString());
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Room Booked");
-                Con.Close();
-                Populate();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void SetAviable()
-        {
-            try
-            {
-                Con.Open();
-                SqlCommand cmd = new SqlCommand("update RoomTbl set RStatus=@RS where RNum=@RoomNum", Con);
-                cmd.Parameters.AddWithValue("@RS", "Aviable");
-                cmd.Parameters.AddWithValue("@RoomNum", RoomCb.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Room Updated");
-                Con.Close();
-                Populate();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void DurationCb_TextChanged(object sender, EventArgs e)
