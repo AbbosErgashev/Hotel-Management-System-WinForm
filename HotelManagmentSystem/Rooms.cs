@@ -9,6 +9,7 @@ namespace HotelManagmentSystem
         {
             InitializeComponent();
             Populate();
+            GetCategories();
         }
 
         SqlConnection Con = new SqlConnection(@"Data Source=ACER;Initial Catalog=HotelDB;Integrated Security=True;Encrypt=False");
@@ -26,8 +27,8 @@ namespace HotelManagmentSystem
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("insert into RoomTbl(RName, RType, RStatus) values(@RN, @RT, @RS)", Con);
                     cmd.Parameters.AddWithValue("@RN", RnameTb.Text);
-                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedIndex.ToString());
-                    cmd.Parameters.AddWithValue("@RS", StatusTb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@RS", StatusTb.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Room Added");
                     Con.Close();
@@ -54,7 +55,7 @@ namespace HotelManagmentSystem
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("update RoomTbl set RName=@RN, RType=@RT, RStatus=@RS where RNum=@Rnum", Con);
                     cmd.Parameters.AddWithValue("@RN", RnameTb.Text);
-                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedIndex.ToString());
+                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@RS", StatusTb.SelectedItem.ToString());
                     cmd.Parameters.AddWithValue("@Rnum", int.Parse(RId.Text));
                     cmd.ExecuteNonQuery();
@@ -73,7 +74,7 @@ namespace HotelManagmentSystem
             try
             {
                 Con.Open();
-                SqlCommand cmd = new SqlCommand("delete  from RoomTbl where Rnum = @Rnum", Con);
+                SqlCommand cmd = new SqlCommand("delete from RoomTbl where Rnum = @Rnum", Con);
                 cmd.Parameters.AddWithValue("@Rnum", int.Parse(RId.Text));
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Room Deleted");
@@ -82,7 +83,7 @@ namespace HotelManagmentSystem
             }
             catch
             {
-                MessageBox.Show("Please. Select a Room!!!");
+                MessageBox.Show("Select a Room!!!");
                 Con.Close();
             }
         }
@@ -96,6 +97,19 @@ namespace HotelManagmentSystem
             var ds = new DataSet();
             sda.Fill(ds);
             RoomsDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
+        private void GetCategories()
+        {
+            Con.Open();
+            SqlCommand cmd = new SqlCommand("select * from TypeTbl", Con);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("TypeNum", typeof(int));
+            dt.Load(rdr);
+            RTypeCb.ValueMember = "TypeNum";
+            RTypeCb.DataSource = dt;
             Con.Close();
         }
 
@@ -114,20 +128,38 @@ namespace HotelManagmentSystem
             DeleteRooms();
         }
 
-        private void RoomsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void categoriesClick_Click(object sender, EventArgs e)
         {
-            RId.Text = RoomsDGV.SelectedRows[0].Cells[0].Value.ToString();
-            RnameTb.Text = RoomsDGV.SelectedRows[0].Cells[1].Value.ToString();
-            RTypeCb.Text = RoomsDGV.SelectedRows[0].Cells[2].Value.ToString();
-            StatusTb.Text = RoomsDGV.SelectedRows[0].Cells[3].Value.ToString();
-            if (RId.Text == "")
-            {
-                RId.Text = "here value is null";
-            }
-            else
-            {
-                RId.Text = Convert.ToInt32(RoomsDGV.SelectedRows[0].Cells[0].Value).ToString();
-            }
+            Types obj = new Types();
+            obj.Show();
+            this.Hide();
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

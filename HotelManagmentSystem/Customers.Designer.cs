@@ -62,16 +62,18 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label14 = new Label();
+            CId = new TextBox();
             label13 = new Label();
-            textBox2 = new TextBox();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            RoomDGV = new DataGridView();
+            CPhoneTb = new TextBox();
+            DeleteBtn = new Button();
+            SaveBtn = new Button();
+            EditBtn = new Button();
+            CustomerDGV = new DataGridView();
             label10 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
+            CnameTb = new TextBox();
+            GenderCb = new ComboBox();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -94,7 +96,7 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDGV).BeginInit();
             SuspendLayout();
             // 
             // panel12
@@ -440,21 +442,39 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label14);
+            panel2.Controls.Add(CId);
             panel2.Controls.Add(label13);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(RoomDGV);
+            panel2.Controls.Add(CPhoneTb);
+            panel2.Controls.Add(DeleteBtn);
+            panel2.Controls.Add(SaveBtn);
+            panel2.Controls.Add(EditBtn);
+            panel2.Controls.Add(CustomerDGV);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(CnameTb);
+            panel2.Controls.Add(GenderCb);
             panel2.Location = new Point(224, 105);
             panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(31, 128);
+            label14.Name = "label14";
+            label14.Size = new Size(28, 25);
+            label14.TabIndex = 15;
+            label14.Text = "Id";
+            // 
+            // CId
+            // 
+            CId.Location = new Point(65, 124);
+            CId.Name = "CId";
+            CId.Size = new Size(65, 31);
+            CId.TabIndex = 14;
             // 
             // label13
             // 
@@ -465,48 +485,51 @@
             label13.TabIndex = 13;
             label13.Text = "Phone:";
             // 
-            // textBox2
+            // CPhoneTb
             // 
-            textBox2.Location = new Point(840, 115);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(167, 31);
-            textBox2.TabIndex = 12;
+            CPhoneTb.Location = new Point(840, 115);
+            CPhoneTb.Name = "CPhoneTb";
+            CPhoneTb.Size = new Size(167, 31);
+            CPhoneTb.TabIndex = 12;
             // 
-            // button3
+            // DeleteBtn
             // 
-            button3.Location = new Point(668, 197);
-            button3.Name = "button3";
-            button3.Size = new Size(125, 49);
-            button3.TabIndex = 11;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            DeleteBtn.Location = new Point(668, 197);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(125, 49);
+            DeleteBtn.TabIndex = 11;
+            DeleteBtn.Text = "Delete";
+            DeleteBtn.UseVisualStyleBackColor = true;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
-            // button2
+            // SaveBtn
             // 
-            button2.Location = new Point(459, 197);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 49);
-            button2.TabIndex = 10;
-            button2.Text = "Save";
-            button2.UseVisualStyleBackColor = true;
+            SaveBtn.Location = new Point(459, 197);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(125, 49);
+            SaveBtn.TabIndex = 10;
+            SaveBtn.Text = "Save";
+            SaveBtn.UseVisualStyleBackColor = true;
+            SaveBtn.Click += SaveBtn_Click;
             // 
-            // button1
+            // EditBtn
             // 
-            button1.Location = new Point(232, 197);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 49);
-            button1.TabIndex = 9;
-            button1.Text = "Edit";
-            button1.UseVisualStyleBackColor = true;
+            EditBtn.Location = new Point(232, 197);
+            EditBtn.Name = "EditBtn";
+            EditBtn.Size = new Size(125, 49);
+            EditBtn.TabIndex = 9;
+            EditBtn.Text = "Edit";
+            EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += button1_Click;
             // 
-            // RoomDGV
+            // CustomerDGV
             // 
-            RoomDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RoomDGV.Location = new Point(0, 326);
-            RoomDGV.Name = "RoomDGV";
-            RoomDGV.RowHeadersWidth = 51;
-            RoomDGV.Size = new Size(1064, 440);
-            RoomDGV.TabIndex = 8;
+            CustomerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CustomerDGV.Location = new Point(0, 326);
+            CustomerDGV.Name = "CustomerDGV";
+            CustomerDGV.RowHeadersWidth = 51;
+            CustomerDGV.Size = new Size(1064, 440);
+            CustomerDGV.TabIndex = 8;
             // 
             // label10
             // 
@@ -527,22 +550,22 @@
             label4.TabIndex = 4;
             label4.Text = "Name:";
             // 
-            // textBox1
+            // CnameTb
             // 
-            textBox1.Location = new Point(232, 120);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 31);
-            textBox1.TabIndex = 3;
+            CnameTb.Location = new Point(232, 120);
+            CnameTb.Name = "CnameTb";
+            CnameTb.Size = new Size(182, 31);
+            CnameTb.TabIndex = 3;
             // 
-            // comboBox1
+            // GenderCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(481, 118);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 1;
-            comboBox1.Text = "Gender";
+            GenderCb.FormattingEnabled = true;
+            GenderCb.Items.AddRange(new object[] { "Male", "Female" });
+            GenderCb.Location = new Point(481, 118);
+            GenderCb.Name = "GenderCb";
+            GenderCb.Size = new Size(151, 33);
+            GenderCb.TabIndex = 1;
+            GenderCb.Text = "Gender";
             // 
             // Customers
             // 
@@ -590,7 +613,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CustomerDGV).EndInit();
             ResumeLayout(false);
         }
 
@@ -630,14 +653,16 @@
         private Label label1;
         private Panel panel2;
         private Label label13;
-        private TextBox textBox2;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private DataGridView RoomDGV;
+        private TextBox CPhoneTb;
+        private Button DeleteBtn;
+        private Button SaveBtn;
+        private Button EditBtn;
+        private DataGridView CustomerDGV;
         private Label label10;
         private Label label4;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox CnameTb;
+        private ComboBox GenderCb;
+        private Label label14;
+        private TextBox CId;
     }
 }

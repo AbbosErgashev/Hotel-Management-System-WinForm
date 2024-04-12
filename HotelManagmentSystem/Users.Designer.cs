@@ -59,18 +59,20 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            RoomDGV = new DataGridView();
+            label16 = new Label();
+            UId = new TextBox();
+            label14 = new Label();
+            UphoneTb = new TextBox();
+            label13 = new Label();
+            PasswordTb = new TextBox();
+            DeleteBtn = new Button();
+            SaveBtn = new Button();
+            EditBtn = new Button();
+            UserDGV = new DataGridView();
             label10 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            comboBox1 = new ComboBox();
-            label13 = new Label();
-            textBox2 = new TextBox();
-            label14 = new Label();
-            textBox3 = new TextBox();
+            UnameTb = new TextBox();
+            GenderCb = new ComboBox();
             panel12 = new Panel();
             pictureBox10 = new PictureBox();
             label15 = new Label();
@@ -94,7 +96,7 @@
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UserDGV).BeginInit();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             SuspendLayout();
@@ -114,7 +116,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1295, 877);
             panel1.TabIndex = 2;
-            panel1.Paint += panel1_Paint;
             // 
             // panel4
             // 
@@ -411,59 +412,112 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(UId);
             panel2.Controls.Add(label14);
-            panel2.Controls.Add(textBox3);
+            panel2.Controls.Add(UphoneTb);
             panel2.Controls.Add(label13);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(RoomDGV);
+            panel2.Controls.Add(PasswordTb);
+            panel2.Controls.Add(DeleteBtn);
+            panel2.Controls.Add(SaveBtn);
+            panel2.Controls.Add(EditBtn);
+            panel2.Controls.Add(UserDGV);
             panel2.Controls.Add(label10);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(textBox1);
-            panel2.Controls.Add(comboBox1);
+            panel2.Controls.Add(UnameTb);
+            panel2.Controls.Add(GenderCb);
             panel2.Location = new Point(224, 105);
             panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
-            // button3
+            // label16
             // 
-            button3.Location = new Point(668, 197);
-            button3.Name = "button3";
-            button3.Size = new Size(125, 49);
-            button3.TabIndex = 11;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
+            label16.AutoSize = true;
+            label16.Location = new Point(46, 76);
+            label16.Name = "label16";
+            label16.Size = new Size(28, 25);
+            label16.TabIndex = 17;
+            label16.Text = "Id";
             // 
-            // button2
+            // UId
             // 
-            button2.Location = new Point(459, 197);
-            button2.Name = "button2";
-            button2.Size = new Size(125, 49);
-            button2.TabIndex = 10;
-            button2.Text = "Save";
-            button2.UseVisualStyleBackColor = true;
+            UId.Location = new Point(79, 72);
+            UId.Name = "UId";
+            UId.Size = new Size(182, 31);
+            UId.TabIndex = 16;
             // 
-            // button1
+            // label14
             // 
-            button1.Location = new Point(232, 197);
-            button1.Name = "button1";
-            button1.Size = new Size(125, 49);
-            button1.TabIndex = 9;
-            button1.Text = "Edit";
-            button1.UseVisualStyleBackColor = true;
+            label14.AutoSize = true;
+            label14.Location = new Point(294, 124);
+            label14.Name = "label14";
+            label14.Size = new Size(66, 25);
+            label14.TabIndex = 15;
+            label14.Text = "Phone:";
             // 
-            // RoomDGV
+            // UphoneTb
             // 
-            RoomDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RoomDGV.Location = new Point(0, 326);
-            RoomDGV.Name = "RoomDGV";
-            RoomDGV.RowHeadersWidth = 51;
-            RoomDGV.Size = new Size(1064, 440);
-            RoomDGV.TabIndex = 8;
+            UphoneTb.Location = new Point(359, 120);
+            UphoneTb.Name = "UphoneTb";
+            UphoneTb.Size = new Size(138, 31);
+            UphoneTb.TabIndex = 14;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(747, 118);
+            label13.Name = "label13";
+            label13.Size = new Size(91, 25);
+            label13.TabIndex = 13;
+            label13.Text = "Password:";
+            // 
+            // PasswordTb
+            // 
+            PasswordTb.Location = new Point(840, 115);
+            PasswordTb.Name = "PasswordTb";
+            PasswordTb.Size = new Size(167, 31);
+            PasswordTb.TabIndex = 12;
+            // 
+            // DeleteBtn
+            // 
+            DeleteBtn.Location = new Point(668, 197);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(125, 49);
+            DeleteBtn.TabIndex = 11;
+            DeleteBtn.Text = "Delete";
+            DeleteBtn.UseVisualStyleBackColor = true;
+            DeleteBtn.Click += DeleteBtn_Click;
+            // 
+            // SaveBtn
+            // 
+            SaveBtn.Location = new Point(459, 197);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(125, 49);
+            SaveBtn.TabIndex = 10;
+            SaveBtn.Text = "Save";
+            SaveBtn.UseVisualStyleBackColor = true;
+            SaveBtn.Click += SaveBtn_Click;
+            // 
+            // EditBtn
+            // 
+            EditBtn.Location = new Point(232, 197);
+            EditBtn.Name = "EditBtn";
+            EditBtn.Size = new Size(125, 49);
+            EditBtn.TabIndex = 9;
+            EditBtn.Text = "Edit";
+            EditBtn.UseVisualStyleBackColor = true;
+            EditBtn.Click += EditBtn_Click;
+            // 
+            // UserDGV
+            // 
+            UserDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            UserDGV.Location = new Point(0, 326);
+            UserDGV.Name = "UserDGV";
+            UserDGV.RowHeadersWidth = 51;
+            UserDGV.Size = new Size(1064, 440);
+            UserDGV.TabIndex = 8;
             // 
             // label10
             // 
@@ -484,54 +538,22 @@
             label4.TabIndex = 4;
             label4.Text = "Name:";
             // 
-            // textBox1
+            // UnameTb
             // 
-            textBox1.Location = new Point(79, 120);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(182, 31);
-            textBox1.TabIndex = 3;
+            UnameTb.Location = new Point(79, 120);
+            UnameTb.Name = "UnameTb";
+            UnameTb.Size = new Size(182, 31);
+            UnameTb.TabIndex = 3;
             // 
-            // comboBox1
+            // GenderCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(560, 118);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 33);
-            comboBox1.TabIndex = 1;
-            comboBox1.Text = "Gender";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(747, 118);
-            label13.Name = "label13";
-            label13.Size = new Size(91, 25);
-            label13.TabIndex = 13;
-            label13.Text = "Password:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(840, 115);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(167, 31);
-            textBox2.TabIndex = 12;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(294, 124);
-            label14.Name = "label14";
-            label14.Size = new Size(66, 25);
-            label14.TabIndex = 15;
-            label14.Text = "Phone:";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(359, 120);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(138, 31);
-            textBox3.TabIndex = 14;
+            GenderCb.FormattingEnabled = true;
+            GenderCb.Items.AddRange(new object[] { "Male", "Female" });
+            GenderCb.Location = new Point(560, 118);
+            GenderCb.Name = "GenderCb";
+            GenderCb.Size = new Size(151, 33);
+            GenderCb.TabIndex = 1;
+            GenderCb.Text = "Gender";
             // 
             // panel12
             // 
@@ -607,7 +629,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)RoomDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UserDGV).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
@@ -646,20 +668,22 @@
         private Label label2;
         private Label label1;
         private Panel panel2;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private DataGridView RoomDGV;
+        private Button DeleteBtn;
+        private Button SaveBtn;
+        private Button EditBtn;
+        private DataGridView UserDGV;
         private Label label10;
         private Label label4;
-        private TextBox textBox1;
-        private ComboBox comboBox1;
+        private TextBox UnameTb;
+        private ComboBox GenderCb;
         private Label label14;
-        private TextBox textBox3;
+        private TextBox UphoneTb;
         private Label label13;
-        private TextBox textBox2;
+        private TextBox PasswordTb;
         private Panel panel12;
         private PictureBox pictureBox10;
         private Label label15;
+        private Label label16;
+        private TextBox UId;
     }
 }

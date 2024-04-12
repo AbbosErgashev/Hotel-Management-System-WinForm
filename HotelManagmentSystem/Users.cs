@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace HotelManagmentSystem
 {
@@ -15,11 +8,113 @@ namespace HotelManagmentSystem
         public Users()
         {
             InitializeComponent();
+            Populate();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
+        SqlConnection Con = new SqlConnection(@"Data Source=ACER;Initial Catalog=HotelDB;Integrated Security=True;Encrypt=False");
 
+        private void InsertUsers()
+        {
+            if (UnameTb.Text == "" || GenderCb.SelectedIndex == -1 || UphoneTb.Text == "" || PasswordTb.Text == "")
+            {
+                MessageBox.Show("Missing Information!!!");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("insert into UserTbl(UName, UPhone, UGender, UPassword) values(@UN, @UPh, @UG, @UP)", Con);
+                    cmd.Parameters.AddWithValue("@UN", UnameTb.Text);
+                    cmd.Parameters.AddWithValue("@UPh", UphoneTb.Text);
+                    cmd.Parameters.AddWithValue("@UG", GenderCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@UP", PasswordTb.Text);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("User Added");
+                    Con.Close();
+                    Populate();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+            }
+        }
+
+        private void EditUsers()
+        {
+            if (UnameTb.Text == "" || GenderCb.SelectedIndex == -1 || UphoneTb.Text == "" || PasswordTb.Text == "")
+            {
+                MessageBox.Show("Missing Information!!!");
+            }
+            else
+            {
+                try
+                {
+                    Con.Open();
+                    SqlCommand cmd = new SqlCommand("update UserTbl set UName=@UN, UPhone=@UPh, UGender=@UG, UPassword=@UP where UNum=@UNum", Con);
+                    cmd.Parameters.AddWithValue("@UN", UnameTb.Text);
+                    cmd.Parameters.AddWithValue("@UPh", UphoneTb.Text);
+                    cmd.Parameters.AddWithValue("@UG", GenderCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@UP", PasswordTb.Text);
+                    cmd.Parameters.AddWithValue("@UNum", int.Parse(UId.Text));
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("User Updated");
+                    Con.Close();
+                    Populate();
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+            }
+        }
+
+        private void DeleteUsers()
+        {
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("delete from UserTbl where UNum = @UNum", Con);
+                cmd.Parameters.AddWithValue("@Unum", int.Parse(UId.Text));
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("User Deleted");
+                Con.Close();
+                Populate();
+            }
+            catch
+            {
+                MessageBox.Show("Select a User!!!");
+                Con.Close();
+            }
+        }
+
+        private void Populate()
+        {
+            Con.Open();
+            string Query = "select * from UserTbl";
+            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+            var ds = new DataSet();
+            sda.Fill(ds);
+            UserDGV.DataSource = ds.Tables[0];
+            Con.Close();
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            EditUsers();
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            InsertUsers();
+        }
+
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            DeleteUsers();
         }
     }
 }
