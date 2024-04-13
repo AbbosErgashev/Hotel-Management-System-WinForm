@@ -50,7 +50,7 @@ namespace HotelManagmentSystem
                 SqlCommand cmd = new SqlCommand("delete from BookingTbl where BookNum = @BookNum", Con);
                 cmd.Parameters.AddWithValue("@BookNum", int.Parse(BId.Text));
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Booking Cancelled");
+                MessageBox.Show("Booking Removed");
                 Con.Close();
                 Populate();
             }
@@ -70,7 +70,7 @@ namespace HotelManagmentSystem
                 cmd.Parameters.AddWithValue("@RS", "Booked");
                 cmd.Parameters.AddWithValue("@RNum", RoomCb.SelectedValue.ToString());
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Room Booked");
+                //MessageBox.Show("Room Booked");
                 Con.Close();
                 Populate();
             }
@@ -186,6 +186,48 @@ namespace HotelManagmentSystem
             DeleteBookings();
             SetAviable();
             SetBooked();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            Rooms rooms = new Rooms();
+            rooms.Show();
+            this.Hide();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Types types = new Types();
+            types.Show();
+            this.Hide();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
+            this.Hide();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Customers customers = new Customers();
+            customers.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }

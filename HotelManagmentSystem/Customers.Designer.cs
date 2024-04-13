@@ -130,6 +130,7 @@
             label15.Size = new Size(85, 31);
             label15.TabIndex = 0;
             label15.Text = "Rooms";
+            label15.Click += label15_Click;
             // 
             // panel1
             // 
@@ -177,6 +178,7 @@
             label3.Size = new Size(129, 31);
             label3.TabIndex = 2;
             label3.Text = "Dashboard";
+            label3.Click += label3_Click;
             // 
             // panel5
             // 
@@ -208,6 +210,7 @@
             label9.Size = new Size(125, 31);
             label9.TabIndex = 6;
             label9.Text = "Categories";
+            label9.Click += label9_Click;
             // 
             // panel10
             // 
@@ -239,6 +242,7 @@
             label11.Size = new Size(111, 31);
             label11.TabIndex = 3;
             label11.Text = "Bookings";
+            label11.Click += label11_Click;
             // 
             // panel6
             // 
@@ -335,6 +339,7 @@
             label8.Size = new Size(71, 31);
             label8.TabIndex = 5;
             label8.Text = "Users";
+            label8.Click += label8_Click;
             // 
             // panel7
             // 
@@ -407,6 +412,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(226, 55);
             panel3.TabIndex = 6;
+            panel3.MouseClick += panel3_MouseClick;
             // 
             // pictureBox1
             // 
@@ -479,7 +485,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(747, 118);
+            label13.Location = new Point(494, 121);
             label13.Name = "label13";
             label13.Size = new Size(66, 25);
             label13.TabIndex = 13;
@@ -487,7 +493,7 @@
             // 
             // CPhoneTb
             // 
-            CPhoneTb.Location = new Point(840, 115);
+            CPhoneTb.Location = new Point(587, 118);
             CPhoneTb.Name = "CPhoneTb";
             CPhoneTb.Size = new Size(167, 31);
             CPhoneTb.TabIndex = 12;
@@ -561,7 +567,7 @@
             // 
             GenderCb.FormattingEnabled = true;
             GenderCb.Items.AddRange(new object[] { "Male", "Female" });
-            GenderCb.Location = new Point(481, 118);
+            GenderCb.Location = new Point(830, 124);
             GenderCb.Name = "GenderCb";
             GenderCb.Size = new Size(151, 33);
             GenderCb.TabIndex = 1;
