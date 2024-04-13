@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace HotelManagmentSystem
 {
@@ -69,6 +70,7 @@ namespace HotelManagmentSystem
                 }
             }
         }
+
         private void DeleteRooms()
         {
             try
@@ -130,36 +132,44 @@ namespace HotelManagmentSystem
 
         private void categoriesClick_Click(object sender, EventArgs e)
         {
-            Types obj = new Types();
-            obj.Show();
+            Types types = new Types();
+            types.Show();
+            this.Hide();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
+            this.Hide();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Customers customers = new Customers();
+            customers.Show();
+            this.Hide();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Bookings bookings = new Bookings();
+            bookings.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
             this.Hide();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

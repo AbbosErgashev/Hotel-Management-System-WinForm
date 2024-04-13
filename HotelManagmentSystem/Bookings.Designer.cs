@@ -62,6 +62,8 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            BId = new TextBox();
+            label4 = new Label();
             AmountTb = new TextBox();
             BDateTime = new DateTimePicker();
             RoomCb = new ComboBox();
@@ -71,8 +73,6 @@
             BookingDGV = new DataGridView();
             label10 = new Label();
             CustomerCb = new ComboBox();
-            label4 = new Label();
-            BId = new TextBox();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -129,6 +129,7 @@
             label15.Size = new Size(85, 31);
             label15.TabIndex = 0;
             label15.Text = "Rooms";
+            label15.Click += label15_Click;
             // 
             // panel1
             // 
@@ -176,6 +177,7 @@
             label3.Size = new Size(129, 31);
             label3.TabIndex = 2;
             label3.Text = "Dashboard";
+            label3.Click += label3_Click;
             // 
             // panel5
             // 
@@ -207,6 +209,7 @@
             label9.Size = new Size(125, 31);
             label9.TabIndex = 6;
             label9.Text = "Categories";
+            label9.Click += label9_Click;
             // 
             // panel10
             // 
@@ -334,6 +337,7 @@
             label8.Size = new Size(71, 31);
             label8.TabIndex = 5;
             label8.Text = "Users";
+            label8.Click += label8_Click;
             // 
             // panel7
             // 
@@ -396,6 +400,7 @@
             label12.Size = new Size(124, 31);
             label12.TabIndex = 4;
             label12.Text = "Customers";
+            label12.Click += label12_Click;
             // 
             // panel3
             // 
@@ -406,6 +411,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(226, 55);
             panel3.TabIndex = 6;
+            panel3.MouseClick += panel3_MouseClick;
             // 
             // pictureBox1
             // 
@@ -458,6 +464,22 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // BId
+            // 
+            BId.Location = new Point(109, 217);
+            BId.Name = "BId";
+            BId.Size = new Size(88, 31);
+            BId.TabIndex = 18;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(75, 219);
+            label4.Name = "label4";
+            label4.Size = new Size(28, 25);
+            label4.TabIndex = 17;
+            label4.Text = "Id";
+            // 
             // AmountTb
             // 
             AmountTb.Enabled = false;
@@ -499,7 +521,7 @@
             CancelBtn.Name = "CancelBtn";
             CancelBtn.Size = new Size(125, 49);
             CancelBtn.TabIndex = 10;
-            CancelBtn.Text = "Cancel";
+            CancelBtn.Text = "Remove";
             CancelBtn.UseVisualStyleBackColor = true;
             CancelBtn.Click += CancelBtn_Click;
             // 
@@ -540,22 +562,6 @@
             CustomerCb.Size = new Size(151, 33);
             CustomerCb.TabIndex = 1;
             CustomerCb.Text = "Customer";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(75, 219);
-            label4.Name = "label4";
-            label4.Size = new Size(28, 25);
-            label4.TabIndex = 17;
-            label4.Text = "Id";
-            // 
-            // BId
-            // 
-            BId.Location = new Point(109, 217);
-            BId.Name = "BId";
-            BId.Size = new Size(88, 31);
-            BId.TabIndex = 18;
             // 
             // Bookings
             // 

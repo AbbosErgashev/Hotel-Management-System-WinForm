@@ -118,5 +118,40 @@ namespace HotelManagmentSystem
             obj.Show();
             this.Hide();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
+            this.Hide();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Customers customers = new Customers();
+            customers.Show();
+            this.Hide();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Bookings bookings = new Bookings();
+            bookings.Show();
+            this.Hide();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }

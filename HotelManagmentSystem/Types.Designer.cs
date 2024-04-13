@@ -157,6 +157,7 @@
             label8.Size = new Size(71, 31);
             label8.TabIndex = 5;
             label8.Text = "Users";
+            label8.Click += label8_Click;
             // 
             // panel3
             // 
@@ -167,6 +168,7 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(226, 55);
             panel3.TabIndex = 6;
+            panel3.MouseClick += panel3_MouseClick;
             // 
             // pictureBox1
             // 
@@ -379,6 +381,7 @@
             label7.Size = new Size(124, 31);
             label7.TabIndex = 4;
             label7.Text = "Customers";
+            label7.Click += label7_Click;
             // 
             // panel8
             // 
@@ -410,6 +413,7 @@
             label6.Size = new Size(111, 31);
             label6.TabIndex = 3;
             label6.Text = "Bookings";
+            label6.Click += label6_Click;
             // 
             // panel9
             // 
@@ -441,6 +445,7 @@
             label5.Size = new Size(129, 31);
             label5.TabIndex = 2;
             label5.Text = "Dashboard";
+            label5.Click += label5_Click;
             // 
             // Types
             // 

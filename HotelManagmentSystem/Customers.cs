@@ -24,10 +24,10 @@ namespace HotelManagmentSystem
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("insert into CustomerTbl(CustName, CustGender, CustPhone) values(@CustN, @CustG, @CustP)", Con);
+                    SqlCommand cmd = new SqlCommand("insert into CustomerTbl(CustName, CustPhone, CustGender) values(@CustN, @CustP, @CustG)", Con);
                     cmd.Parameters.AddWithValue("@CustN", CnameTb.Text);
-                    cmd.Parameters.AddWithValue("@CustG", CPhoneTb.Text);
-                    cmd.Parameters.AddWithValue("@CustP", GenderCb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@CustP", CPhoneTb.Text);
+                    cmd.Parameters.AddWithValue("@CustG", GenderCb.SelectedItem.ToString());
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Customer Added");
                     Con.Close();
@@ -52,7 +52,7 @@ namespace HotelManagmentSystem
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("update CustomerTbl set CustName=@CustN, CustGender=@CustG, CustPhone=@CustP where CustNum=@CustNum", Con);
+                    SqlCommand cmd = new SqlCommand("update CustomerTbl set CustName=@CustN, CustPhone=@CustP, CustGender=@CustG where CustNum=@CustNum", Con);
                     cmd.Parameters.AddWithValue("@CustN", CnameTb.Text);
                     cmd.Parameters.AddWithValue("@CustP", CPhoneTb.Text);
                     cmd.Parameters.AddWithValue("@CustG", GenderCb.SelectedItem.ToString());
@@ -113,6 +113,48 @@ namespace HotelManagmentSystem
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DeleteCustomers();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+            Rooms rooms = new Rooms();
+            rooms.Show();
+            this.Hide();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Types types = new Types();
+            types.Show();
+            this.Hide();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Users users = new Users();
+            users.Show();
+            this.Hide();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            Bookings bookings = new Bookings();
+            bookings.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
     }
 }
