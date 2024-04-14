@@ -62,6 +62,8 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label14 = new Label();
+            label13 = new Label();
             BId = new TextBox();
             label4 = new Label();
             AmountTb = new TextBox();
@@ -73,6 +75,8 @@
             BookingDGV = new DataGridView();
             label10 = new Label();
             CustomerCb = new ComboBox();
+            label16 = new Label();
+            label17 = new Label();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -104,9 +108,9 @@
             panel12.Controls.Add(pictureBox10);
             panel12.Controls.Add(label15);
             panel12.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            panel12.Location = new Point(5, 165);
+            panel12.Location = new Point(1, 105);
             panel12.Name = "panel12";
-            panel12.Size = new Size(226, 55);
+            panel12.Size = new Size(222, 55);
             panel12.TabIndex = 20;
             // 
             // pictureBox10
@@ -134,6 +138,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel10);
@@ -152,7 +157,7 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(0, 432);
+            panel4.Location = new Point(0, 379);
             panel4.Name = "panel4";
             panel4.Size = new Size(223, 55);
             panel4.TabIndex = 14;
@@ -184,9 +189,9 @@
             panel5.BackColor = Color.White;
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label9);
-            panel5.Location = new Point(0, 212);
+            panel5.Location = new Point(0, 160);
             panel5.Name = "panel5";
-            panel5.Size = new Size(226, 55);
+            panel5.Size = new Size(223, 55);
             panel5.TabIndex = 1;
             // 
             // pictureBox2
@@ -216,9 +221,9 @@
             panel10.BackColor = Color.FromArgb(64, 64, 64);
             panel10.Controls.Add(pictureBox8);
             panel10.Controls.Add(label11);
-            panel10.Location = new Point(0, 377);
+            panel10.Location = new Point(1, 324);
             panel10.Name = "panel10";
-            panel10.Size = new Size(226, 55);
+            panel10.Size = new Size(222, 55);
             panel10.TabIndex = 13;
             // 
             // pictureBox8
@@ -235,7 +240,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label11.ForeColor = Color.Black;
+            label11.ForeColor = Color.White;
             label11.Location = new Point(56, 10);
             label11.Name = "label11";
             label11.Size = new Size(111, 31);
@@ -250,9 +255,9 @@
             panel6.Controls.Add(panel8);
             panel6.Controls.Add(label8);
             panel6.Controls.Add(panel7);
-            panel6.Location = new Point(0, 267);
+            panel6.Location = new Point(1, 212);
             panel6.Name = "panel6";
-            panel6.Size = new Size(226, 55);
+            panel6.Size = new Size(222, 55);
             panel6.TabIndex = 2;
             // 
             // panel9
@@ -375,9 +380,9 @@
             panel11.BackColor = Color.White;
             panel11.Controls.Add(pictureBox9);
             panel11.Controls.Add(label12);
-            panel11.Location = new Point(0, 322);
+            panel11.Location = new Point(1, 269);
             panel11.Name = "panel11";
-            panel11.Size = new Size(226, 55);
+            panel11.Size = new Size(222, 55);
             panel11.TabIndex = 12;
             // 
             // pictureBox9
@@ -409,18 +414,17 @@
             panel3.Controls.Add(label2);
             panel3.Location = new Point(0, 816);
             panel3.Name = "panel3";
-            panel3.Size = new Size(226, 55);
+            panel3.Size = new Size(223, 55);
             panel3.TabIndex = 6;
-            panel3.MouseClick += panel3_MouseClick;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(161, 3);
+            pictureBox1.Location = new Point(164, 8);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 52);
+            pictureBox1.Size = new Size(55, 41);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
+            pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
             // label2
@@ -433,12 +437,13 @@
             label2.Size = new Size(88, 31);
             label2.TabIndex = 0;
             label2.Text = "Logout";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(217, 45);
+            label1.Location = new Point(217, 49);
             label1.Name = "label1";
             label1.Size = new Size(348, 38);
             label1.TabIndex = 1;
@@ -447,6 +452,10 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(label14);
+            panel2.Controls.Add(label13);
             panel2.Controls.Add(BId);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(AmountTb);
@@ -464,17 +473,35 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(734, 191);
+            label14.Name = "label14";
+            label14.Size = new Size(77, 25);
+            label14.TabIndex = 20;
+            label14.Text = "Amount";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(369, 195);
+            label13.Name = "label13";
+            label13.Size = new Size(81, 25);
+            label13.TabIndex = 19;
+            label13.Text = "Duration";
+            // 
             // BId
             // 
-            BId.Location = new Point(109, 217);
+            BId.Location = new Point(132, 120);
             BId.Name = "BId";
-            BId.Size = new Size(88, 31);
+            BId.Size = new Size(108, 31);
             BId.TabIndex = 18;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(75, 219);
+            label4.Location = new Point(102, 122);
             label4.Name = "label4";
             label4.Size = new Size(28, 25);
             label4.TabIndex = 17;
@@ -483,23 +510,22 @@
             // AmountTb
             // 
             AmountTb.Enabled = false;
-            AmountTb.Location = new Point(825, 129);
+            AmountTb.Location = new Point(813, 188);
             AmountTb.Name = "AmountTb";
-            AmountTb.Size = new Size(94, 31);
+            AmountTb.Size = new Size(151, 31);
             AmountTb.TabIndex = 16;
-            AmountTb.Text = "Amount";
             // 
             // BDateTime
             // 
-            BDateTime.Location = new Point(459, 129);
+            BDateTime.Location = new Point(105, 191);
             BDateTime.Name = "BDateTime";
-            BDateTime.Size = new Size(208, 31);
+            BDateTime.Size = new Size(209, 31);
             BDateTime.TabIndex = 15;
             // 
             // RoomCb
             // 
             RoomCb.FormattingEnabled = true;
-            RoomCb.Location = new Point(68, 129);
+            RoomCb.Location = new Point(453, 115);
             RoomCb.Name = "RoomCb";
             RoomCb.Size = new Size(151, 33);
             RoomCb.TabIndex = 14;
@@ -508,18 +534,18 @@
             // 
             // DurationTb
             // 
-            DurationTb.Location = new Point(699, 129);
+            DurationTb.Location = new Point(453, 192);
             DurationTb.Name = "DurationTb";
-            DurationTb.Size = new Size(94, 31);
+            DurationTb.Size = new Size(151, 31);
             DurationTb.TabIndex = 12;
-            DurationTb.Text = "Duration";
             DurationTb.TextChanged += DurationCb_TextChanged;
             // 
             // CancelBtn
             // 
-            CancelBtn.Location = new Point(587, 211);
+            CancelBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            CancelBtn.Location = new Point(537, 248);
             CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(125, 49);
+            CancelBtn.Size = new Size(151, 51);
             CancelBtn.TabIndex = 10;
             CancelBtn.Text = "Remove";
             CancelBtn.UseVisualStyleBackColor = true;
@@ -527,9 +553,10 @@
             // 
             // BookBtn
             // 
-            BookBtn.Location = new Point(360, 211);
+            BookBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            BookBtn.Location = new Point(301, 248);
             BookBtn.Name = "BookBtn";
-            BookBtn.Size = new Size(125, 49);
+            BookBtn.Size = new Size(151, 51);
             BookBtn.TabIndex = 9;
             BookBtn.Text = "Book";
             BookBtn.UseVisualStyleBackColor = true;
@@ -537,6 +564,8 @@
             // 
             // BookingDGV
             // 
+            BookingDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            BookingDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             BookingDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BookingDGV.Location = new Point(0, 326);
             BookingDGV.Name = "BookingDGV";
@@ -550,28 +579,47 @@
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label10.Location = new Point(402, 35);
             label10.Name = "label10";
-            label10.Size = new Size(235, 38);
+            label10.Size = new Size(247, 38);
             label10.TabIndex = 7;
-            label10.Text = "Manage Booking";
+            label10.Text = "Manage Bookings";
             // 
             // CustomerCb
             // 
             CustomerCb.FormattingEnabled = true;
-            CustomerCb.Location = new Point(275, 129);
+            CustomerCb.Location = new Point(813, 114);
             CustomerCb.Name = "CustomerCb";
             CustomerCb.Size = new Size(151, 33);
             CustomerCb.TabIndex = 1;
             CustomerCb.Text = "Customer";
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(387, 118);
+            label16.Name = "label16";
+            label16.Size = new Size(60, 25);
+            label16.TabIndex = 21;
+            label16.Text = "Room";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(724, 118);
+            label17.Name = "label17";
+            label17.Size = new Size(89, 25);
+            label17.TabIndex = 22;
+            label17.Text = "Customer";
+            // 
             // Bookings
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(0, 0, 192);
             ClientSize = new Size(1306, 889);
-            Controls.Add(panel12);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
             Name = "Bookings";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bookings";
@@ -644,7 +692,6 @@
         private PictureBox pictureBox9;
         private Label label12;
         private Panel panel3;
-        private PictureBox pictureBox1;
         private Label label2;
         private Label label1;
         private Panel panel2;
@@ -659,5 +706,10 @@
         private DataGridView BookingDGV;
         private Label label4;
         private TextBox BId;
+        private Label label14;
+        private Label label13;
+        private PictureBox pictureBox1;
+        private Label label17;
+        private Label label16;
     }
 }

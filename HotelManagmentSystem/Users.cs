@@ -39,6 +39,10 @@ namespace HotelManagmentSystem
                     MessageBox.Show(Ex.Message);
                     Con.Close();
                 }
+                finally
+                {
+                    Con.Close();
+                }
             }
         }
 
@@ -67,6 +71,11 @@ namespace HotelManagmentSystem
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -88,18 +97,33 @@ namespace HotelManagmentSystem
                 MessageBox.Show("Select a User!!!");
                 Con.Close();
             }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void Populate()
         {
-            Con.Open();
-            string Query = "select * from UserTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            UserDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string Query = "select * from UserTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+                SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                UserDGV.DataSource = ds.Tables[0];
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -115,11 +139,6 @@ namespace HotelManagmentSystem
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DeleteUsers();
-        }
-
-        private void panelLogOut_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panelLogOut_MouseClick(object sender, MouseEventArgs e)
@@ -161,6 +180,13 @@ namespace HotelManagmentSystem
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
             this.Hide();
         }
     }

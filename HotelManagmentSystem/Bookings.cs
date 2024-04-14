@@ -18,28 +18,50 @@ namespace HotelManagmentSystem
 
         private void GetRooms()
         {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("select * from RoomTbl where RStatus='Aviable'", Con);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("RNum", typeof(int));
-            dt.Load(rdr);
-            RoomCb.ValueMember = "RNum";
-            RoomCb.DataSource = dt;
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("select * from RoomTbl where RStatus='Aviable'", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("RNum", typeof(int));
+                dt.Load(rdr);
+                RoomCb.ValueMember = "RNum";
+                RoomCb.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void GetCustomors()
         {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("select * from CustomerTbl", Con);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("CustNum", typeof(int));
-            dt.Load(rdr);
-            CustomerCb.ValueMember = "CustNum";
-            CustomerCb.DataSource = dt;
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("select * from CustomerTbl", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("CustNum", typeof(int));
+                dt.Load(rdr);
+                CustomerCb.ValueMember = "CustNum";
+                CustomerCb.DataSource = dt;
+                Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void DeleteBookings()
@@ -59,6 +81,10 @@ namespace HotelManagmentSystem
                 MessageBox.Show("Select a Room!!!");
                 Con.Close();
             }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void SetBooked()
@@ -70,13 +96,17 @@ namespace HotelManagmentSystem
                 cmd.Parameters.AddWithValue("@RS", "Booked");
                 cmd.Parameters.AddWithValue("@RNum", RoomCb.SelectedValue.ToString());
                 cmd.ExecuteNonQuery();
-                //MessageBox.Show("Room Booked");
                 Con.Close();
                 Populate();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
             }
         }
 
@@ -96,22 +126,37 @@ namespace HotelManagmentSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
             }
         }
 
         private void FetchCost()
         {
-            Con.Open();
-            string query = "select TypeCost from RoomTbl join TypeTbl on RType=TypeNum where RNum=" + RoomCb.SelectedValue.ToString() + "";
-            SqlCommand cmd = new SqlCommand(query, Con);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            try
             {
-                Price = Convert.ToInt32(dr["TypeCost"].ToString());
+                Con.Open();
+                string query = "select TypeCost from RoomTbl join TypeTbl on RType=TypeNum where RNum=" + RoomCb.SelectedValue.ToString() + "";
+                SqlCommand cmd = new SqlCommand(query, Con);
+                DataTable dt = new DataTable();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Price = Convert.ToInt32(dr["TypeCost"].ToString());
+                }
             }
-            Con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void BookBtn_Click(object sender, EventArgs e)
@@ -141,19 +186,35 @@ namespace HotelManagmentSystem
                     MessageBox.Show(Ex.Message);
                     Con.Close();
                 }
+                finally
+                {
+                    Con.Close();
+                }
             }
         }
 
         private void Populate()
         {
-            Con.Open();
-            string Query = "select * from BookingTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            BookingDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string Query = "select * from BookingTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+                SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                BookingDGV.DataSource = ds.Tables[0];
+                Con.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void DurationCb_TextChanged(object sender, EventArgs e)
@@ -169,9 +230,9 @@ namespace HotelManagmentSystem
                     int total = Price * Convert.ToInt32(DurationTb.Text);
                     AmountTb.Text = "" + total;
                 }
-                catch
+                catch (Exception Ex)
                 {
-
+                    MessageBox.Show(Ex.Message);
                 }
             }
         }
@@ -223,7 +284,7 @@ namespace HotelManagmentSystem
             this.Hide();
         }
 
-        private void panel3_MouseClick(object sender, MouseEventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();

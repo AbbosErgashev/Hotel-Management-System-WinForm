@@ -58,7 +58,6 @@
             pictureBox9 = new PictureBox();
             label12 = new Label();
             panel3 = new Panel();
-            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
@@ -74,6 +73,7 @@
             label4 = new Label();
             CnameTb = new TextBox();
             GenderCb = new ComboBox();
+            pictureBox1 = new PictureBox();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -94,9 +94,9 @@
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel12
@@ -105,9 +105,9 @@
             panel12.Controls.Add(pictureBox10);
             panel12.Controls.Add(label15);
             panel12.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            panel12.Location = new Point(5, 165);
+            panel12.Location = new Point(0, 105);
             panel12.Name = "panel12";
-            panel12.Size = new Size(226, 55);
+            panel12.Size = new Size(223, 55);
             panel12.TabIndex = 18;
             // 
             // pictureBox10
@@ -128,13 +128,14 @@
             label15.Location = new Point(56, 14);
             label15.Name = "label15";
             label15.Size = new Size(85, 31);
-            label15.TabIndex = 0;
+            label15.TabIndex = 7;
             label15.Text = "Rooms";
             label15.Click += label15_Click;
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(panel12);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel10);
@@ -153,9 +154,9 @@
             panel4.BackColor = Color.White;
             panel4.Controls.Add(pictureBox7);
             panel4.Controls.Add(label3);
-            panel4.Location = new Point(0, 432);
+            panel4.Location = new Point(1, 383);
             panel4.Name = "panel4";
-            panel4.Size = new Size(223, 55);
+            panel4.Size = new Size(222, 55);
             panel4.TabIndex = 14;
             // 
             // pictureBox7
@@ -176,7 +177,7 @@
             label3.Location = new Point(56, 13);
             label3.Name = "label3";
             label3.Size = new Size(129, 31);
-            label3.TabIndex = 2;
+            label3.TabIndex = 12;
             label3.Text = "Dashboard";
             label3.Click += label3_Click;
             // 
@@ -185,9 +186,9 @@
             panel5.BackColor = Color.White;
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(label9);
-            panel5.Location = new Point(0, 212);
+            panel5.Location = new Point(0, 160);
             panel5.Name = "panel5";
-            panel5.Size = new Size(226, 55);
+            panel5.Size = new Size(223, 55);
             panel5.TabIndex = 1;
             // 
             // pictureBox2
@@ -208,7 +209,7 @@
             label9.Location = new Point(56, 11);
             label9.Name = "label9";
             label9.Size = new Size(125, 31);
-            label9.TabIndex = 6;
+            label9.TabIndex = 8;
             label9.Text = "Categories";
             label9.Click += label9_Click;
             // 
@@ -217,9 +218,9 @@
             panel10.BackColor = Color.White;
             panel10.Controls.Add(pictureBox8);
             panel10.Controls.Add(label11);
-            panel10.Location = new Point(0, 377);
+            panel10.Location = new Point(0, 328);
             panel10.Name = "panel10";
-            panel10.Size = new Size(226, 55);
+            panel10.Size = new Size(223, 55);
             panel10.TabIndex = 13;
             // 
             // pictureBox8
@@ -240,7 +241,7 @@
             label11.Location = new Point(56, 10);
             label11.Name = "label11";
             label11.Size = new Size(111, 31);
-            label11.TabIndex = 3;
+            label11.TabIndex = 11;
             label11.Text = "Bookings";
             label11.Click += label11_Click;
             // 
@@ -252,9 +253,9 @@
             panel6.Controls.Add(panel8);
             panel6.Controls.Add(label8);
             panel6.Controls.Add(panel7);
-            panel6.Location = new Point(0, 267);
+            panel6.Location = new Point(0, 216);
             panel6.Name = "panel6";
-            panel6.Size = new Size(226, 55);
+            panel6.Size = new Size(223, 55);
             panel6.TabIndex = 2;
             // 
             // panel9
@@ -337,7 +338,7 @@
             label8.Location = new Point(56, 13);
             label8.Name = "label8";
             label8.Size = new Size(71, 31);
-            label8.TabIndex = 5;
+            label8.TabIndex = 9;
             label8.Text = "Users";
             label8.Click += label8_Click;
             // 
@@ -377,13 +378,14 @@
             panel11.BackColor = Color.FromArgb(64, 64, 64);
             panel11.Controls.Add(pictureBox9);
             panel11.Controls.Add(label12);
-            panel11.Location = new Point(0, 322);
+            panel11.Location = new Point(0, 273);
             panel11.Name = "panel11";
-            panel11.Size = new Size(226, 55);
+            panel11.Size = new Size(223, 55);
             panel11.TabIndex = 12;
             // 
             // pictureBox9
             // 
+            pictureBox9.BackColor = Color.FromArgb(64, 64, 64);
             pictureBox9.Image = Properties.Resources.customer;
             pictureBox9.Location = new Point(9, 8);
             pictureBox9.Name = "pictureBox9";
@@ -396,11 +398,11 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label12.ForeColor = Color.Black;
+            label12.ForeColor = Color.White;
             label12.Location = new Point(56, 12);
             label12.Name = "label12";
             label12.Size = new Size(124, 31);
-            label12.TabIndex = 4;
+            label12.TabIndex = 10;
             label12.Text = "Customers";
             // 
             // panel3
@@ -410,19 +412,9 @@
             panel3.Controls.Add(label2);
             panel3.Location = new Point(0, 816);
             panel3.Name = "panel3";
-            panel3.Size = new Size(226, 55);
+            panel3.Size = new Size(223, 55);
             panel3.TabIndex = 6;
             panel3.MouseClick += panel3_MouseClick;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(161, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 52);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -432,14 +424,15 @@
             label2.Location = new Point(6, 13);
             label2.Name = "label2";
             label2.Size = new Size(88, 31);
-            label2.TabIndex = 0;
+            label2.TabIndex = 13;
             label2.Text = "Logout";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(217, 45);
+            label1.Location = new Point(217, 48);
             label1.Name = "label1";
             label1.Size = new Size(348, 38);
             label1.TabIndex = 1;
@@ -469,7 +462,7 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(31, 128);
+            label14.Location = new Point(66, 127);
             label14.Name = "label14";
             label14.Size = new Size(28, 25);
             label14.TabIndex = 15;
@@ -477,64 +470,69 @@
             // 
             // CId
             // 
-            CId.Location = new Point(65, 124);
+            CId.Location = new Point(96, 124);
             CId.Name = "CId";
             CId.Size = new Size(65, 31);
-            CId.TabIndex = 14;
+            CId.TabIndex = 0;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(494, 121);
+            label13.Location = new Point(562, 121);
             label13.Name = "label13";
-            label13.Size = new Size(66, 25);
+            label13.Size = new Size(62, 25);
             label13.TabIndex = 13;
-            label13.Text = "Phone:";
+            label13.Text = "Phone";
             // 
             // CPhoneTb
             // 
-            CPhoneTb.Location = new Point(587, 118);
+            CPhoneTb.Location = new Point(626, 118);
             CPhoneTb.Name = "CPhoneTb";
             CPhoneTb.Size = new Size(167, 31);
-            CPhoneTb.TabIndex = 12;
+            CPhoneTb.TabIndex = 2;
             // 
             // DeleteBtn
             // 
-            DeleteBtn.Location = new Point(668, 197);
+            DeleteBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            DeleteBtn.Location = new Point(668, 216);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(125, 49);
-            DeleteBtn.TabIndex = 11;
+            DeleteBtn.TabIndex = 6;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = true;
             DeleteBtn.Click += DeleteBtn_Click;
             // 
             // SaveBtn
             // 
-            SaveBtn.Location = new Point(459, 197);
+            SaveBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            SaveBtn.Location = new Point(459, 216);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(125, 49);
-            SaveBtn.TabIndex = 10;
+            SaveBtn.TabIndex = 5;
             SaveBtn.Text = "Save";
             SaveBtn.UseVisualStyleBackColor = true;
             SaveBtn.Click += SaveBtn_Click;
             // 
             // EditBtn
             // 
-            EditBtn.Location = new Point(232, 197);
+            EditBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            EditBtn.Location = new Point(232, 216);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(125, 49);
-            EditBtn.TabIndex = 9;
+            EditBtn.TabIndex = 4;
             EditBtn.Text = "Edit";
             EditBtn.UseVisualStyleBackColor = true;
             EditBtn.Click += button1_Click;
             // 
             // CustomerDGV
             // 
+            CustomerDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            CustomerDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             CustomerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CustomerDGV.Location = new Point(0, 326);
+            CustomerDGV.Location = new Point(0, 330);
             CustomerDGV.Name = "CustomerDGV";
             CustomerDGV.RowHeadersWidth = 51;
-            CustomerDGV.Size = new Size(1064, 440);
+            CustomerDGV.Size = new Size(1064, 436);
             CustomerDGV.TabIndex = 8;
             // 
             // label10
@@ -550,38 +548,50 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(167, 124);
+            label4.Location = new Point(218, 125);
             label4.Name = "label4";
-            label4.Size = new Size(63, 25);
+            label4.Size = new Size(59, 25);
             label4.TabIndex = 4;
-            label4.Text = "Name:";
+            label4.Text = "Name";
             // 
             // CnameTb
             // 
-            CnameTb.Location = new Point(232, 120);
+            CnameTb.Location = new Point(279, 122);
             CnameTb.Name = "CnameTb";
-            CnameTb.Size = new Size(182, 31);
-            CnameTb.TabIndex = 3;
+            CnameTb.Size = new Size(245, 31);
+            CnameTb.TabIndex = 1;
             // 
             // GenderCb
             // 
             GenderCb.FormattingEnabled = true;
             GenderCb.Items.AddRange(new object[] { "Male", "Female" });
-            GenderCb.Location = new Point(830, 124);
+            GenderCb.Location = new Point(846, 116);
             GenderCb.Name = "GenderCb";
             GenderCb.Size = new Size(151, 33);
-            GenderCb.TabIndex = 1;
+            GenderCb.TabIndex = 3;
             GenderCb.Text = "Gender";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(164, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
             // 
             // Customers
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.Blue;
             ClientSize = new Size(1306, 889);
-            Controls.Add(panel12);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            HelpButton = true;
+            MaximizeBox = false;
             Name = "Customers";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Customers";
@@ -616,10 +626,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -654,7 +664,6 @@
         private PictureBox pictureBox9;
         private Label label12;
         private Panel panel3;
-        private PictureBox pictureBox1;
         private Label label2;
         private Label label1;
         private Panel panel2;
@@ -670,5 +679,6 @@
         private ComboBox GenderCb;
         private Label label14;
         private TextBox CId;
+        private PictureBox pictureBox1;
     }
 }
