@@ -15,14 +15,25 @@ namespace HotelManagmentSystem
 
         private void Populate()
         {
-            Con.Open();
-            string Query = "select * from TypeTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            TypesDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string Query = "select * from TypeTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+                SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                TypesDGV.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void InsertCategories()
@@ -47,6 +58,11 @@ namespace HotelManagmentSystem
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -74,6 +90,11 @@ namespace HotelManagmentSystem
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -93,6 +114,10 @@ namespace HotelManagmentSystem
             catch
             {
                 MessageBox.Show("Select a Category!!!");
+                Con.Close();
+            }
+            finally
+            {
                 Con.Close();
             }
         }
@@ -148,6 +173,13 @@ namespace HotelManagmentSystem
         }
 
         private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();

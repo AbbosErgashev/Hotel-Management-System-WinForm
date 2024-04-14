@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace HotelManagmentSystem
 {
@@ -40,6 +39,10 @@ namespace HotelManagmentSystem
                     MessageBox.Show(Ex.Message);
                     Con.Close();
                 }
+                finally
+                {
+                    Con.Close();
+                }
             }
         }
 
@@ -56,8 +59,8 @@ namespace HotelManagmentSystem
                     Con.Open();
                     SqlCommand cmd = new SqlCommand("update RoomTbl set RName=@RN, RType=@RT, RStatus=@RS where RNum=@Rnum", Con);
                     cmd.Parameters.AddWithValue("@RN", RnameTb.Text);
-                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedItem.ToString());
-                    cmd.Parameters.AddWithValue("@RS", StatusTb.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@RT", RTypeCb.SelectedValue.ToString());
+                    cmd.Parameters.AddWithValue("@RS", StatusTb.Text);
                     cmd.Parameters.AddWithValue("@Rnum", int.Parse(RId.Text));
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Room Updated");
@@ -67,6 +70,11 @@ namespace HotelManagmentSystem
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -88,31 +96,58 @@ namespace HotelManagmentSystem
                 MessageBox.Show("Select a Room!!!");
                 Con.Close();
             }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void Populate()
         {
-            Con.Open();
-            string Query = "select * from RoomTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            RoomsDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string Query = "select * from RoomTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+                SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                RoomsDGV.DataSource = ds.Tables[0];
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void GetCategories()
         {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("select * from TypeTbl", Con);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("TypeNum", typeof(int));
-            dt.Load(rdr);
-            RTypeCb.ValueMember = "TypeNum";
-            RTypeCb.DataSource = dt;
-            Con.Close();
+            try
+            {
+
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("select * from TypeTbl", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TypeNum", typeof(int));
+                dt.Load(rdr);
+                RTypeCb.ValueMember = "TypeNum";
+                RTypeCb.DataSource = dt;
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -130,45 +165,45 @@ namespace HotelManagmentSystem
             DeleteRooms();
         }
 
-        private void categoriesClick_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void label15_Click(object sender, EventArgs e)
         {
             Types types = new Types();
             types.Show();
             this.Hide();
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void label16_Click(object sender, EventArgs e)
         {
             Users users = new Users();
             users.Show();
             this.Hide();
         }
 
-        private void label12_Click(object sender, EventArgs e)
+        private void label17_Click(object sender, EventArgs e)
         {
             Customers customers = new Customers();
             customers.Show();
             this.Hide();
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void label18_Click(object sender, EventArgs e)
         {
             Bookings bookings = new Bookings();
             bookings.Show();
             this.Hide();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void label19_Click(object sender, EventArgs e)
         {
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
             this.Hide();
         }
     }

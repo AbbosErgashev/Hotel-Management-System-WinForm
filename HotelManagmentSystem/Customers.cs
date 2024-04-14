@@ -38,6 +38,10 @@ namespace HotelManagmentSystem
                     MessageBox.Show(Ex.Message);
                     Con.Close();
                 }
+                finally
+                {
+                    Con.Close();
+                }
             }
         }
 
@@ -65,6 +69,11 @@ namespace HotelManagmentSystem
                 catch (Exception Ex)
                 {
                     MessageBox.Show(Ex.Message);
+                    Con.Close();
+                }
+                finally
+                {
+                    Con.Close();
                 }
             }
         }
@@ -86,18 +95,34 @@ namespace HotelManagmentSystem
                 MessageBox.Show("Select a Customer!!!");
                 Con.Close();
             }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void Populate()
         {
-            Con.Open();
-            string Query = "select * from CustomerTbl";
-            SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
-            SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
-            var ds = new DataSet();
-            sda.Fill(ds);
-            CustomerDGV.DataSource = ds.Tables[0];
-            Con.Close();
+            try
+            {
+                Con.Open();
+                string Query = "select * from CustomerTbl";
+                SqlDataAdapter sda = new SqlDataAdapter(Query, Con);
+                SqlCommandBuilder Builder = new SqlCommandBuilder(sda);
+                var ds = new DataSet();
+                sda.Fill(ds);
+                CustomerDGV.DataSource = ds.Tables[0];
+                Con.Close();
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -151,6 +176,13 @@ namespace HotelManagmentSystem
         }
 
         private void panel3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();

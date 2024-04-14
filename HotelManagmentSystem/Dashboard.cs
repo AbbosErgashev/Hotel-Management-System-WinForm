@@ -18,32 +18,65 @@ namespace HotelManagmentSystem
 
         private void CountRooms()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("select count(*) from RoomTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            RoomsLbl.Text = dt.Rows[0][0].ToString() + "   Rooms";
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlDataAdapter sda = new SqlDataAdapter("select count(*) from RoomTbl", Con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                RoomsLbl.Text = dt.Rows[0][0].ToString() + "  Rooms";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void CountCustomers()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("select count(*) from CustomerTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            CustomersLbl.Text = dt.Rows[0][0].ToString() + "   Customers";
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlDataAdapter sda = new SqlDataAdapter("select count(*) from CustomerTbl", Con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                CustomersLbl.Text = dt.Rows[0][0].ToString() + "  Customers";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void SumAmount()
         {
-            Con.Open();
-            SqlDataAdapter sda = new SqlDataAdapter("select sum(Cost) from BookingTbl", Con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            BookingsLbl.Text = "$  " + dt.Rows[0][0].ToString();
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlDataAdapter sda = new SqlDataAdapter("select sum(Cost) from BookingTbl", Con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                BookingsLbl.Text = "$  " + dt.Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
         }
 
         private void SumDaily()
@@ -56,16 +89,17 @@ namespace HotelManagmentSystem
                 object result = cmd.ExecuteScalar();
                 if (result != DBNull.Value)
                 {
-                    DailyIncomeLbl.Text = "$ " + result.ToString();
+                    DailyIncomeLbl.Text = "$  " + result.ToString();
                 }
                 else
                 {
-                    DailyIncomeLbl.Text = "$ 0";
+                    DailyIncomeLbl.Text = "$  0";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Con.Close();
             }
             finally
             {
@@ -87,6 +121,7 @@ namespace HotelManagmentSystem
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Con.Close();
             }
             finally
             {
@@ -96,15 +131,37 @@ namespace HotelManagmentSystem
 
         private void GetCustomors()
         {
-            Con.Open();
-            SqlCommand cmd = new SqlCommand("select * from CustomerTbl", Con);
-            SqlDataReader rdr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("CustNum", typeof(int));
-            dt.Load(rdr);
-            CustomerCb.ValueMember = "CustNum";
-            CustomerCb.DataSource = dt;
-            Con.Close();
+            try
+            {
+                Con.Open();
+                SqlCommand cmd = new SqlCommand("select * from CustomerTbl", Con);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("CustNum", typeof(int));
+                dt.Load(rdr);
+                CustomerCb.ValueMember = "CustNum";
+                CustomerCb.DataSource = dt;
+                Con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Con.Close();
+            }
+            finally
+            {
+                Con.Close();
+            }
+        }
+
+        private void BDateTime_ValueChanged(object sender, EventArgs e)
+        {
+            SumDaily();
+        }
+
+        private void CustomerCb_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            SumByCustomer();
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -142,27 +199,14 @@ namespace HotelManagmentSystem
             this.Hide();
         }
 
-        private void BDateTime_ValueChanged(object sender, EventArgs e)
-        {
-            SumDaily();
-        }
-
-        private void panel13_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CustomerCb_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            SumByCustomer();
-        }
-
-        private void panelLogOut_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panelLogOut_MouseClick(object sender, MouseEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
             Login login = new Login();
             login.Show();

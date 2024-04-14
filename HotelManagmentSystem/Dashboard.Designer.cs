@@ -33,7 +33,6 @@
             panel3 = new Panel();
             pictureBox10 = new PictureBox();
             label13 = new Label();
-            panel4 = new Panel();
             panel5 = new Panel();
             pictureBox2 = new PictureBox();
             categoriesClick = new Label();
@@ -56,15 +55,19 @@
             pictureBox9 = new PictureBox();
             label12 = new Label();
             panelLogOut = new Panel();
-            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             panel18 = new Panel();
+            label29 = new Label();
             label17 = new Label();
             label18 = new Label();
             label19 = new Label();
             label21 = new Label();
+            label25 = new Label();
+            label26 = new Label();
+            label27 = new Label();
+            label28 = new Label();
             label24 = new Label();
             label23 = new Label();
             label22 = new Label();
@@ -90,6 +93,7 @@
             pictureBox7 = new PictureBox();
             label3 = new Label();
             panel12 = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
@@ -108,7 +112,6 @@
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panelLogOut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel18.SuspendLayout();
             panel16.SuspendLayout();
@@ -118,13 +121,13 @@
             panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.White;
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel10);
             panel1.Controls.Add(panel6);
@@ -142,9 +145,9 @@
             panel3.BackColor = Color.White;
             panel3.Controls.Add(pictureBox10);
             panel3.Controls.Add(label13);
-            panel3.Location = new Point(0, 159);
+            panel3.Location = new Point(0, 105);
             panel3.Name = "panel3";
-            panel3.Size = new Size(226, 55);
+            panel3.Size = new Size(223, 55);
             panel3.TabIndex = 14;
             // 
             // pictureBox10
@@ -169,22 +172,14 @@
             label13.Text = "Rooms";
             label13.Click += label13_Click;
             // 
-            // panel4
-            // 
-            panel4.BackColor = Color.White;
-            panel4.Location = new Point(0, 432);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(223, 55);
-            panel4.TabIndex = 14;
-            // 
             // panel5
             // 
             panel5.BackColor = Color.White;
             panel5.Controls.Add(pictureBox2);
             panel5.Controls.Add(categoriesClick);
-            panel5.Location = new Point(0, 212);
+            panel5.Location = new Point(1, 159);
             panel5.Name = "panel5";
-            panel5.Size = new Size(226, 55);
+            panel5.Size = new Size(222, 55);
             panel5.TabIndex = 1;
             // 
             // pictureBox2
@@ -214,9 +209,9 @@
             panel10.BackColor = Color.White;
             panel10.Controls.Add(pictureBox8);
             panel10.Controls.Add(label11);
-            panel10.Location = new Point(0, 377);
+            panel10.Location = new Point(1, 321);
             panel10.Name = "panel10";
-            panel10.Size = new Size(226, 55);
+            panel10.Size = new Size(222, 55);
             panel10.TabIndex = 13;
             // 
             // pictureBox8
@@ -249,9 +244,9 @@
             panel6.Controls.Add(panel8);
             panel6.Controls.Add(label8);
             panel6.Controls.Add(panel7);
-            panel6.Location = new Point(0, 267);
+            panel6.Location = new Point(1, 212);
             panel6.Name = "panel6";
-            panel6.Size = new Size(226, 55);
+            panel6.Size = new Size(222, 55);
             panel6.TabIndex = 2;
             // 
             // panel9
@@ -374,9 +369,9 @@
             panel11.BackColor = Color.White;
             panel11.Controls.Add(pictureBox9);
             panel11.Controls.Add(label12);
-            panel11.Location = new Point(0, 322);
+            panel11.Location = new Point(1, 266);
             panel11.Name = "panel11";
-            panel11.Size = new Size(226, 55);
+            panel11.Size = new Size(222, 55);
             panel11.TabIndex = 12;
             // 
             // pictureBox9
@@ -408,20 +403,9 @@
             panelLogOut.Controls.Add(label2);
             panelLogOut.Location = new Point(0, 816);
             panelLogOut.Name = "panelLogOut";
-            panelLogOut.Size = new Size(226, 55);
+            panelLogOut.Size = new Size(223, 55);
             panelLogOut.TabIndex = 6;
-            panelLogOut.Paint += panelLogOut_Paint;
             panelLogOut.MouseClick += panelLogOut_MouseClick;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(161, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(57, 52);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -433,12 +417,13 @@
             label2.Size = new Size(88, 31);
             label2.TabIndex = 0;
             label2.Text = "Logout";
+            label2.Click += label2_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(217, 45);
+            label1.Location = new Point(217, 51);
             label1.Name = "label1";
             label1.Size = new Size(348, 38);
             label1.TabIndex = 1;
@@ -464,10 +449,15 @@
             // panel18
             // 
             panel18.BackColor = Color.Gray;
+            panel18.Controls.Add(label29);
             panel18.Controls.Add(label17);
             panel18.Controls.Add(label18);
             panel18.Controls.Add(label19);
             panel18.Controls.Add(label21);
+            panel18.Controls.Add(label25);
+            panel18.Controls.Add(label26);
+            panel18.Controls.Add(label27);
+            panel18.Controls.Add(label28);
             panel18.Controls.Add(label24);
             panel18.Controls.Add(label23);
             panel18.Controls.Add(label22);
@@ -478,93 +468,152 @@
             panel18.Size = new Size(1058, 336);
             panel18.TabIndex = 12;
             // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI", 12F);
+            label29.Location = new Point(739, 24);
+            label29.Name = "label29";
+            label29.Size = new Size(240, 28);
+            label29.TabIndex = 21;
+            label29.Text = "Developer by Abbos 2024";
+            // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(853, 101);
+            label17.Font = new Font("Segoe UI", 12F);
+            label17.Location = new Point(739, 142);
             label17.Name = "label17";
-            label17.Size = new Size(155, 25);
-            label17.TabIndex = 12;
+            label17.Size = new Size(169, 28);
+            label17.TabIndex = 20;
             label17.Text = "Manage Bookings";
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(853, 146);
+            label18.Font = new Font("Segoe UI", 12F);
+            label18.Location = new Point(740, 201);
             label18.Name = "label18";
-            label18.Size = new Size(185, 25);
-            label18.TabIndex = 11;
+            label18.Size = new Size(203, 28);
+            label18.TabIndex = 19;
             label18.Text = "Manage Receptionists";
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(852, 186);
+            label19.Font = new Font("Segoe UI", 12F);
+            label19.Location = new Point(740, 264);
             label19.Name = "label19";
-            label19.Size = new Size(140, 25);
-            label19.TabIndex = 10;
+            label19.Size = new Size(154, 28);
+            label19.TabIndex = 18;
             label19.Text = "Manage Finance";
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(852, 65);
+            label21.Font = new Font("Segoe UI", 12F);
+            label21.Location = new Point(739, 89);
             label21.Name = "label21";
-            label21.Size = new Size(137, 25);
-            label21.TabIndex = 9;
+            label21.Size = new Size(148, 28);
+            label21.TabIndex = 17;
             label21.Text = "Manage Rooms";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Segoe UI", 12F);
+            label25.Location = new Point(427, 142);
+            label25.Name = "label25";
+            label25.Size = new Size(169, 28);
+            label25.TabIndex = 16;
+            label25.Text = "Manage Bookings";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI", 12F);
+            label26.Location = new Point(428, 201);
+            label26.Name = "label26";
+            label26.Size = new Size(203, 28);
+            label26.TabIndex = 15;
+            label26.Text = "Manage Receptionists";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 12F);
+            label27.Location = new Point(428, 264);
+            label27.Name = "label27";
+            label27.Size = new Size(154, 28);
+            label27.TabIndex = 14;
+            label27.Text = "Manage Finance";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 12F);
+            label28.Location = new Point(428, 89);
+            label28.Name = "label28";
+            label28.Size = new Size(148, 28);
+            label28.TabIndex = 13;
+            label28.Text = "Manage Rooms";
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(53, 101);
+            label24.Font = new Font("Segoe UI", 12F);
+            label24.Location = new Point(52, 142);
             label24.Name = "label24";
-            label24.Size = new Size(155, 25);
+            label24.Size = new Size(169, 28);
             label24.TabIndex = 8;
             label24.Text = "Manage Bookings";
             // 
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(53, 146);
+            label23.Font = new Font("Segoe UI", 12F);
+            label23.Location = new Point(53, 201);
             label23.Name = "label23";
-            label23.Size = new Size(185, 25);
+            label23.Size = new Size(203, 28);
             label23.TabIndex = 7;
             label23.Text = "Manage Receptionists";
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(52, 186);
+            label22.Font = new Font("Segoe UI", 12F);
+            label22.Location = new Point(53, 264);
             label22.Name = "label22";
-            label22.Size = new Size(140, 25);
+            label22.Size = new Size(154, 28);
             label22.TabIndex = 6;
             label22.Text = "Manage Finance";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(52, 65);
+            label15.Font = new Font("Segoe UI", 12F);
+            label15.Location = new Point(52, 89);
             label15.Name = "label15";
-            label15.Size = new Size(137, 25);
+            label15.Size = new Size(148, 28);
             label15.TabIndex = 1;
             label15.Text = "Manage Rooms";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(53, 21);
+            label9.Font = new Font("Segoe UI", 12F);
+            label9.Location = new Point(52, 24);
             label9.Name = "label9";
-            label9.Size = new Size(422, 25);
+            label9.Size = new Size(461, 28);
             label9.TabIndex = 0;
             label9.Text = "Modern and Professional Hotel Managment System";
             // 
             // panel16
             // 
-            panel16.BackColor = Color.DimGray;
+            panel16.BackColor = Color.LightGray;
             panel16.Controls.Add(IncomeByCustomerLbl);
             panel16.Controls.Add(label20);
-            panel16.Location = new Point(609, 296);
+            panel16.Location = new Point(587, 281);
             panel16.Name = "panel16";
             panel16.Size = new Size(250, 125);
             panel16.TabIndex = 11;
@@ -572,31 +621,33 @@
             // IncomeByCustomerLbl
             // 
             IncomeByCustomerLbl.AutoSize = true;
-            IncomeByCustomerLbl.BackColor = Color.White;
+            IncomeByCustomerLbl.BackColor = Color.LightGray;
+            IncomeByCustomerLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             IncomeByCustomerLbl.ForeColor = Color.Black;
-            IncomeByCustomerLbl.Location = new Point(21, 63);
+            IncomeByCustomerLbl.Location = new Point(19, 60);
             IncomeByCustomerLbl.Name = "IncomeByCustomerLbl";
-            IncomeByCustomerLbl.Size = new Size(31, 25);
+            IncomeByCustomerLbl.Size = new Size(23, 28);
             IncomeByCustomerLbl.TabIndex = 5;
-            IncomeByCustomerLbl.Text = "Rs";
+            IncomeByCustomerLbl.Text = "$";
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.BackColor = Color.White;
+            label20.BackColor = Color.LightGray;
+            label20.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label20.ForeColor = Color.Black;
-            label20.Location = new Point(21, 20);
+            label20.Location = new Point(12, 18);
             label20.Name = "label20";
-            label20.Size = new Size(177, 25);
+            label20.Size = new Size(208, 28);
             label20.TabIndex = 6;
-            label20.Text = "Income By Customer";
+            label20.Text = "Income By Customer:";
             // 
             // panel14
             // 
-            panel14.BackColor = Color.DimGray;
+            panel14.BackColor = Color.LightGray;
             panel14.Controls.Add(DailyIncomeLbl);
             panel14.Controls.Add(label14);
-            panel14.Location = new Point(120, 296);
+            panel14.Location = new Point(218, 281);
             panel14.Name = "panel14";
             panel14.Size = new Size(250, 125);
             panel14.TabIndex = 11;
@@ -604,31 +655,33 @@
             // DailyIncomeLbl
             // 
             DailyIncomeLbl.AutoSize = true;
-            DailyIncomeLbl.BackColor = Color.White;
+            DailyIncomeLbl.BackColor = Color.LightGray;
+            DailyIncomeLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             DailyIncomeLbl.ForeColor = Color.Black;
-            DailyIncomeLbl.Location = new Point(15, 54);
+            DailyIncomeLbl.Location = new Point(15, 58);
             DailyIncomeLbl.Name = "DailyIncomeLbl";
-            DailyIncomeLbl.Size = new Size(31, 25);
+            DailyIncomeLbl.Size = new Size(23, 28);
             DailyIncomeLbl.TabIndex = 4;
-            DailyIncomeLbl.Text = "Rs";
+            DailyIncomeLbl.Text = "$";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.BackColor = Color.White;
+            label14.BackColor = Color.LightGray;
+            label14.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label14.ForeColor = Color.Black;
-            label14.Location = new Point(15, 8);
+            label14.Location = new Point(13, 14);
             label14.Name = "label14";
-            label14.Size = new Size(115, 25);
+            label14.Size = new Size(135, 28);
             label14.TabIndex = 3;
-            label14.Text = "Daily Income";
+            label14.Text = "Daily Income:";
             // 
             // panel15
             // 
-            panel15.BackColor = Color.DimGray;
+            panel15.BackColor = Color.LightGray;
             panel15.Controls.Add(CustomersLbl);
             panel15.Controls.Add(label10);
-            panel15.Location = new Point(374, 37);
+            panel15.Location = new Point(401, 37);
             panel15.Name = "panel15";
             panel15.Size = new Size(250, 125);
             panel15.TabIndex = 11;
@@ -636,31 +689,33 @@
             // CustomersLbl
             // 
             CustomersLbl.AutoSize = true;
-            CustomersLbl.BackColor = Color.White;
+            CustomersLbl.BackColor = Color.LightGray;
+            CustomersLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             CustomersLbl.ForeColor = Color.Black;
-            CustomersLbl.Location = new Point(3, 56);
+            CustomersLbl.Location = new Point(9, 56);
             CustomersLbl.Name = "CustomersLbl";
-            CustomersLbl.Size = new Size(31, 25);
+            CustomersLbl.Size = new Size(23, 28);
             CustomersLbl.TabIndex = 3;
-            CustomersLbl.Text = "Rs";
+            CustomersLbl.Text = "$";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.BackColor = Color.White;
+            label10.BackColor = Color.LightGray;
+            label10.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(3, 17);
+            label10.Location = new Point(9, 17);
             label10.Name = "label10";
-            label10.Size = new Size(97, 25);
+            label10.Size = new Size(114, 28);
             label10.TabIndex = 2;
-            label10.Text = "Customers";
+            label10.Text = "Customers:";
             // 
             // panel17
             // 
-            panel17.BackColor = Color.DimGray;
+            panel17.BackColor = Color.LightGray;
             panel17.Controls.Add(BookingsLbl);
             panel17.Controls.Add(label16);
-            panel17.Location = new Point(698, 37);
+            panel17.Location = new Point(742, 37);
             panel17.Name = "panel17";
             panel17.Size = new Size(250, 125);
             panel17.TabIndex = 11;
@@ -668,61 +723,64 @@
             // BookingsLbl
             // 
             BookingsLbl.AutoSize = true;
-            BookingsLbl.BackColor = Color.White;
+            BookingsLbl.BackColor = Color.LightGray;
+            BookingsLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             BookingsLbl.ForeColor = Color.Black;
             BookingsLbl.Location = new Point(12, 56);
             BookingsLbl.Name = "BookingsLbl";
-            BookingsLbl.Size = new Size(31, 25);
+            BookingsLbl.Size = new Size(23, 28);
             BookingsLbl.TabIndex = 5;
-            BookingsLbl.Text = "Rs";
+            BookingsLbl.Text = "$";
             // 
             // label16
             // 
             label16.AutoSize = true;
-            label16.BackColor = Color.White;
+            label16.BackColor = Color.LightGray;
+            label16.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label16.ForeColor = Color.Black;
-            label16.Location = new Point(12, 17);
+            label16.Location = new Point(9, 16);
             label16.Name = "label16";
-            label16.Size = new Size(150, 25);
+            label16.Size = new Size(177, 28);
             label16.TabIndex = 4;
-            label16.Text = "Bookings Finance";
+            label16.Text = "Bookings Finance:";
             // 
             // panel13
             // 
-            panel13.BackColor = Color.DimGray;
+            panel13.BackColor = Color.LightGray;
             panel13.Controls.Add(RoomsLbl);
             panel13.Controls.Add(label4);
-            panel13.Location = new Point(55, 37);
+            panel13.Location = new Point(56, 37);
             panel13.Name = "panel13";
             panel13.Size = new Size(250, 125);
             panel13.TabIndex = 10;
-            panel13.Paint += panel13_Paint;
             // 
             // RoomsLbl
             // 
             RoomsLbl.AutoSize = true;
-            RoomsLbl.BackColor = Color.White;
+            RoomsLbl.BackColor = Color.LightGray;
+            RoomsLbl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             RoomsLbl.ForeColor = Color.Black;
             RoomsLbl.Location = new Point(20, 56);
             RoomsLbl.Name = "RoomsLbl";
-            RoomsLbl.Size = new Size(31, 25);
+            RoomsLbl.Size = new Size(23, 28);
             RoomsLbl.TabIndex = 1;
-            RoomsLbl.Text = "Rs";
+            RoomsLbl.Text = "$";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.White;
+            label4.BackColor = Color.LightGray;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
             label4.Location = new Point(20, 17);
             label4.Name = "label4";
-            label4.Size = new Size(68, 25);
+            label4.Size = new Size(79, 28);
             label4.TabIndex = 0;
-            label4.Text = "Rooms";
+            label4.Text = "Rooms:";
             // 
             // BDateTime
             // 
-            BDateTime.Location = new Point(135, 227);
+            BDateTime.Location = new Point(218, 211);
             BDateTime.Name = "BDateTime";
             BDateTime.Size = new Size(250, 31);
             BDateTime.TabIndex = 9;
@@ -731,9 +789,9 @@
             // CustomerCb
             // 
             CustomerCb.FormattingEnabled = true;
-            CustomerCb.Location = new Point(609, 229);
+            CustomerCb.Location = new Point(587, 211);
             CustomerCb.Name = "CustomerCb";
-            CustomerCb.Size = new Size(151, 33);
+            CustomerCb.Size = new Size(250, 33);
             CustomerCb.TabIndex = 3;
             CustomerCb.Text = "Customer";
             CustomerCb.SelectionChangeCommitted += CustomerCb_SelectionChangeCommitted;
@@ -752,7 +810,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.Black;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(63, 15);
             label3.Name = "label3";
             label3.Size = new Size(129, 31);
@@ -765,20 +823,32 @@
             panel12.Controls.Add(pictureBox7);
             panel12.Controls.Add(label3);
             panel12.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            panel12.Location = new Point(3, 438);
+            panel12.Location = new Point(5, 382);
             panel12.Name = "panel12";
-            panel12.Size = new Size(226, 55);
+            panel12.Size = new Size(224, 55);
             panel12.TabIndex = 16;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(165, 7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.FromArgb(0, 0, 192);
             ClientSize = new Size(1306, 889);
             Controls.Add(panel12);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
             Name = "Dashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
@@ -810,7 +880,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panelLogOut.ResumeLayout(false);
             panelLogOut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
@@ -827,13 +896,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Panel panel4;
         private PictureBox pictureBox7;
         private Label label3;
         private Panel panel5;
@@ -858,7 +927,6 @@
         private PictureBox pictureBox9;
         private Label label12;
         private Panel panelLogOut;
-        private PictureBox pictureBox1;
         private Label label2;
         private Label label1;
         private Panel panel2;
@@ -885,13 +953,19 @@
         private Label BookingsLbl;
         private Panel panel18;
         private Label label9;
-        private Label label17;
-        private Label label18;
-        private Label label19;
-        private Label label21;
         private Label label24;
         private Label label23;
         private Label label22;
         private Label label15;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private Label label28;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label21;
+        private Label label29;
+        private PictureBox pictureBox1;
     }
 }
