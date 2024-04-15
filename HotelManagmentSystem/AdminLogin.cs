@@ -20,7 +20,7 @@
             }
             else
             {
-                if (PasswordTb.Text == "Password")
+                if (PasswordTb.Text == "useradmin")
                 {
                     Users obj = new Users();
                     obj.Show();

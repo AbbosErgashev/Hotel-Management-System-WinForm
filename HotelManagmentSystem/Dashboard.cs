@@ -115,7 +115,7 @@ namespace HotelManagmentSystem
                 SqlDataAdapter sda = new SqlDataAdapter("select sum(Cost) from BookingTbl where Customer=" + CustomerCb.SelectedValue.ToString() + "", Con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-                IncomeByCustomerLbl.Text = "Rs  " + dt.Rows[0][0].ToString();
+                IncomeByCustomerLbl.Text = "$  " + dt.Rows[0][0].ToString();
                 Con.Close();
             }
             catch (Exception ex)
