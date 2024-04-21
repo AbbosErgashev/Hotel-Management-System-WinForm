@@ -126,6 +126,103 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void ClearUsers()
+        {
+            UId.Text = "";
+            UnameTb.Text = "";
+            PasswordTb.Text = "";
+            UphoneTb.Text = "";
+            GenderCb.SelectedIndex = -1;
+            GenderCb.Text = "Gender";
+        }
+
+        private void IdSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from UserTbl where UNum LIKE '%" + IdSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            UserDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void NameSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from UserTbl where UName LIKE '%" + NameSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            UserDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void PhoneSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from UserTbl where UPhone LIKE '%" + PhoneSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            UserDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void PasswordSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from UserTbl where UPassword LIKE '%" + PasswordSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            UserDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void GenderSearchUser()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from UserTbl where UGender='" + GenderSearchCb.Text.ToString() + "'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            UserDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void ResetFilter()
+        {
+            IdSearchTbl.Text = "";
+            NameSearchTbl.Text = "";
+            PhoneSearchTbl.Text = "";
+            PasswordSearchTbl.Text = "";
+            GenderSearchCb.SelectedIndex = -1;
+            GenderSearchCb.Text = "Gender";
+            Populate();
+            Con.Close();
+        }
+
         private void EditBtn_Click(object sender, EventArgs e)
         {
             EditUsers();
@@ -188,6 +285,41 @@ namespace HotelManagmentSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearUsers();
+        }
+
+        private void IdSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            IdSearch();
+        }
+
+        private void NameSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            NameSearch();
+        }
+
+        private void PhoneSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            PhoneSearch();
+        }
+
+        private void PasswordSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            PasswordSearch();
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            ResetFilter();
+        }
+
+        private void GenderSearchCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GenderSearchUser();
         }
     }
 }

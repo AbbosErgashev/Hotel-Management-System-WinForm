@@ -62,6 +62,22 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            BookDateTimeSearch = new DateTimePicker();
+            ResetBtn = new Button();
+            ClearBtn = new Button();
+            RNumSearchTbl = new TextBox();
+            label23 = new Label();
+            CNumSearchTbl = new TextBox();
+            label22 = new Label();
+            DurationSearchTbl = new TextBox();
+            label21 = new Label();
+            label20 = new Label();
+            CostSearchTbl = new TextBox();
+            label19 = new Label();
+            BNumSearchTbl = new TextBox();
+            label18 = new Label();
+            label17 = new Label();
+            label16 = new Label();
             label14 = new Label();
             label13 = new Label();
             BId = new TextBox();
@@ -75,8 +91,6 @@
             BookingDGV = new DataGridView();
             label10 = new Label();
             CustomerCb = new ComboBox();
-            label16 = new Label();
-            label17 = new Label();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -452,6 +466,20 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(BookDateTimeSearch);
+            panel2.Controls.Add(ResetBtn);
+            panel2.Controls.Add(ClearBtn);
+            panel2.Controls.Add(RNumSearchTbl);
+            panel2.Controls.Add(label23);
+            panel2.Controls.Add(CNumSearchTbl);
+            panel2.Controls.Add(label22);
+            panel2.Controls.Add(DurationSearchTbl);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(CostSearchTbl);
+            panel2.Controls.Add(label19);
+            panel2.Controls.Add(BNumSearchTbl);
+            panel2.Controls.Add(label18);
             panel2.Controls.Add(label17);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(label14);
@@ -473,10 +501,155 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // BookDateTimeSearch
+            // 
+            BookDateTimeSearch.Location = new Point(509, 372);
+            BookDateTimeSearch.Name = "BookDateTimeSearch";
+            BookDateTimeSearch.Size = new Size(214, 31);
+            BookDateTimeSearch.TabIndex = 37;
+            BookDateTimeSearch.ValueChanged += BookDateTimeSearch_ValueChanged;
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.Transparent;
+            ResetBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            ResetBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ResetBtn.Location = new Point(812, 257);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(161, 51);
+            ResetBtn.TabIndex = 36;
+            ResetBtn.Text = "Reset Filter";
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Transparent;
+            ClearBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ClearBtn.Location = new Point(592, 257);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(161, 51);
+            ClearBtn.TabIndex = 35;
+            ClearBtn.Text = "Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
+            // 
+            // RNumSearchTbl
+            // 
+            RNumSearchTbl.Location = new Point(231, 372);
+            RNumSearchTbl.Name = "RNumSearchTbl";
+            RNumSearchTbl.Size = new Size(158, 31);
+            RNumSearchTbl.TabIndex = 34;
+            RNumSearchTbl.TextChanged += RNumSearchTbl_TextChanged;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new Point(227, 345);
+            label23.Name = "label23";
+            label23.Size = new Size(81, 25);
+            label23.TabIndex = 33;
+            label23.Text = "Room Id";
+            // 
+            // CNumSearchTbl
+            // 
+            CNumSearchTbl.Location = new Point(395, 372);
+            CNumSearchTbl.Name = "CNumSearchTbl";
+            CNumSearchTbl.Size = new Size(108, 31);
+            CNumSearchTbl.TabIndex = 32;
+            CNumSearchTbl.TextChanged += CNumSearchTbl_TextChanged;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Location = new Point(390, 345);
+            label22.Name = "label22";
+            label22.Size = new Size(110, 25);
+            label22.TabIndex = 31;
+            label22.Text = "Customer Id";
+            // 
+            // DurationSearchTbl
+            // 
+            DurationSearchTbl.Location = new Point(729, 372);
+            DurationSearchTbl.Name = "DurationSearchTbl";
+            DurationSearchTbl.Size = new Size(159, 31);
+            DurationSearchTbl.TabIndex = 30;
+            DurationSearchTbl.TextChanged += DurationSearchTbl_TextChanged;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(725, 345);
+            label21.Name = "label21";
+            label21.Size = new Size(125, 25);
+            label21.TabIndex = 29;
+            label21.Text = "Duration Days";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(507, 345);
+            label20.Name = "label20";
+            label20.Size = new Size(138, 25);
+            label20.TabIndex = 27;
+            label20.Text = "Book Date Filter";
+            // 
+            // CostSearchTbl
+            // 
+            CostSearchTbl.Location = new Point(894, 372);
+            CostSearchTbl.Name = "CostSearchTbl";
+            CostSearchTbl.Size = new Size(149, 31);
+            CostSearchTbl.TabIndex = 26;
+            CostSearchTbl.TextChanged += CostSearchTbl_TextChanged;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(890, 345);
+            label19.Name = "label19";
+            label19.Size = new Size(101, 25);
+            label19.TabIndex = 25;
+            label19.Text = "Cost Room";
+            // 
+            // BNumSearchTbl
+            // 
+            BNumSearchTbl.Location = new Point(64, 372);
+            BNumSearchTbl.Name = "BNumSearchTbl";
+            BNumSearchTbl.Size = new Size(161, 31);
+            BNumSearchTbl.TabIndex = 24;
+            BNumSearchTbl.TextChanged += BNumSearchTbl_TextChanged;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(60, 345);
+            label18.Name = "label18";
+            label18.Size = new Size(74, 25);
+            label18.TabIndex = 23;
+            label18.Text = "Book Id";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(723, 101);
+            label17.Name = "label17";
+            label17.Size = new Size(89, 25);
+            label17.TabIndex = 22;
+            label17.Text = "Customer";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(386, 101);
+            label16.Name = "label16";
+            label16.Size = new Size(60, 25);
+            label16.TabIndex = 21;
+            label16.Text = "Room";
+            // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(734, 191);
+            label14.Location = new Point(733, 174);
             label14.Name = "label14";
             label14.Size = new Size(77, 25);
             label14.TabIndex = 20;
@@ -485,7 +658,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(369, 195);
+            label13.Location = new Point(368, 178);
             label13.Name = "label13";
             label13.Size = new Size(81, 25);
             label13.TabIndex = 19;
@@ -493,15 +666,15 @@
             // 
             // BId
             // 
-            BId.Location = new Point(132, 120);
+            BId.Location = new Point(131, 103);
             BId.Name = "BId";
-            BId.Size = new Size(108, 31);
+            BId.Size = new Size(177, 31);
             BId.TabIndex = 18;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(102, 122);
+            label4.Location = new Point(101, 105);
             label4.Name = "label4";
             label4.Size = new Size(28, 25);
             label4.TabIndex = 17;
@@ -510,22 +683,22 @@
             // AmountTb
             // 
             AmountTb.Enabled = false;
-            AmountTb.Location = new Point(813, 188);
+            AmountTb.Location = new Point(822, 171);
             AmountTb.Name = "AmountTb";
             AmountTb.Size = new Size(151, 31);
             AmountTb.TabIndex = 16;
             // 
             // BDateTime
             // 
-            BDateTime.Location = new Point(105, 191);
+            BDateTime.Location = new Point(104, 174);
             BDateTime.Name = "BDateTime";
-            BDateTime.Size = new Size(209, 31);
+            BDateTime.Size = new Size(204, 31);
             BDateTime.TabIndex = 15;
             // 
             // RoomCb
             // 
             RoomCb.FormattingEnabled = true;
-            RoomCb.Location = new Point(453, 115);
+            RoomCb.Location = new Point(452, 98);
             RoomCb.Name = "RoomCb";
             RoomCb.Size = new Size(151, 33);
             RoomCb.TabIndex = 14;
@@ -534,7 +707,7 @@
             // 
             // DurationTb
             // 
-            DurationTb.Location = new Point(453, 192);
+            DurationTb.Location = new Point(452, 175);
             DurationTb.Name = "DurationTb";
             DurationTb.Size = new Size(151, 31);
             DurationTb.TabIndex = 12;
@@ -543,9 +716,9 @@
             // CancelBtn
             // 
             CancelBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            CancelBtn.Location = new Point(537, 248);
+            CancelBtn.Location = new Point(368, 257);
             CancelBtn.Name = "CancelBtn";
-            CancelBtn.Size = new Size(151, 51);
+            CancelBtn.Size = new Size(161, 51);
             CancelBtn.TabIndex = 10;
             CancelBtn.Text = "Remove";
             CancelBtn.UseVisualStyleBackColor = true;
@@ -554,9 +727,9 @@
             // BookBtn
             // 
             BookBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            BookBtn.Location = new Point(301, 248);
+            BookBtn.Location = new Point(147, 257);
             BookBtn.Name = "BookBtn";
-            BookBtn.Size = new Size(151, 51);
+            BookBtn.Size = new Size(161, 51);
             BookBtn.TabIndex = 9;
             BookBtn.Text = "Book";
             BookBtn.UseVisualStyleBackColor = true;
@@ -567,17 +740,17 @@
             BookingDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             BookingDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             BookingDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            BookingDGV.Location = new Point(0, 326);
+            BookingDGV.Location = new Point(0, 409);
             BookingDGV.Name = "BookingDGV";
             BookingDGV.RowHeadersWidth = 51;
-            BookingDGV.Size = new Size(1064, 440);
+            BookingDGV.Size = new Size(1064, 357);
             BookingDGV.TabIndex = 8;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label10.Location = new Point(402, 35);
+            label10.Location = new Point(415, 30);
             label10.Name = "label10";
             label10.Size = new Size(247, 38);
             label10.TabIndex = 7;
@@ -586,29 +759,11 @@
             // CustomerCb
             // 
             CustomerCb.FormattingEnabled = true;
-            CustomerCb.Location = new Point(813, 114);
+            CustomerCb.Location = new Point(822, 97);
             CustomerCb.Name = "CustomerCb";
             CustomerCb.Size = new Size(151, 33);
             CustomerCb.TabIndex = 1;
             CustomerCb.Text = "Customer";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Location = new Point(387, 118);
-            label16.Name = "label16";
-            label16.Size = new Size(60, 25);
-            label16.TabIndex = 21;
-            label16.Text = "Room";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(724, 118);
-            label17.Name = "label17";
-            label17.Size = new Size(89, 25);
-            label17.TabIndex = 22;
-            label17.Text = "Customer";
             // 
             // Bookings
             // 
@@ -711,5 +866,19 @@
         private PictureBox pictureBox1;
         private Label label17;
         private Label label16;
+        private TextBox BNumSearchTbl;
+        private Label label18;
+        private TextBox RNumSearchTbl;
+        private Label label23;
+        private TextBox CNumSearchTbl;
+        private Label label22;
+        private TextBox DurationSearchTbl;
+        private Label label21;
+        private Label label20;
+        private TextBox CostSearchTbl;
+        private Label label19;
+        private Button ResetBtn;
+        private Button ClearBtn;
+        private DateTimePicker BookDateTimeSearch;
     }
 }

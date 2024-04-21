@@ -101,6 +101,14 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void ClearCustomers()
+        {
+            CId.Text = "";
+            CnameTb.Text = "";
+            CPhoneTb.Text = "";
+            GenderCb.Text = "Gender";
+        }
+
         private void Populate()
         {
             try
@@ -123,6 +131,76 @@ namespace HotelManagmentSystem
             {
                 Con.Close();
             }
+        }
+
+        private void IdSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from CustomerTbl where CustNum LIKE '%" + CIdSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            CustomerDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void NameSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from CustomerTbl where CustName LIKE '%" + CNameSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            CustomerDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void PhoneSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from CustomerTbl where CUstPhone LIKE '%" + CPhoneSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            CustomerDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void FilterGenderSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from CustomerTbl where CustGender='" + CFilterCb.Text.ToString() + "'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            CustomerDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void ResetFilter()
+        {
+            CIdSearchTbl.Text = "";
+            CNameSearchTbl.Text = "";
+            CPhoneSearchTbl.Text = "";
+            CFilterCb.Text = "Filtr by Gender";
+            Populate();
+            Con.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -187,6 +265,36 @@ namespace HotelManagmentSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void CIdSearch_TextChanged(object sender, EventArgs e)
+        {
+            IdSearch();
+        }
+
+        private void CNameSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            NameSearch();
+        }
+
+        private void CPhoneSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            PhoneSearch();
+        }
+
+        private void CFilterCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterGenderSearch();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearCustomers();
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            ResetFilter();
         }
     }
 }

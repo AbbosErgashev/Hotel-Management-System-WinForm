@@ -237,6 +237,118 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void ClearBooking()
+        {
+            BId.Text = "";
+            RoomCb.SelectedIndex = -1;
+            CustomerCb.SelectedIndex = -1;
+            DurationTb.Text = "";
+            AmountTb.Text = "";
+        }
+
+        private void BookNumberSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from BookingTbl where BookNum LIKE '%" + BNumSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void RoomNumberSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from BookingTbl where Room LIKE '%" + RNumSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void CustomerNumberSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from BookingTbl where Customer LIKE '%" + CNumSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void DurationSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from BookingTbl where Duration LIKE '%" + DurationSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void CostRoom()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from BookingTbl where Cost LIKE '%" + CostSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void ResetBooking()
+        {
+            BNumSearchTbl.Text = "";
+            CNumSearchTbl.Text = "";
+            RNumSearchTbl.Text = "";
+            DurationSearchTbl.Text = "";
+            CostSearchTbl.Text = "";
+            Populate();
+            Con.Close();
+        }
+
+        private void BookDateTimeSearchBooking()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BookingTbl WHERE BookDate = @BookDate", Con);
+            cmd.Parameters.AddWithValue("@BookDate", BookDateTimeSearch.Value.Date);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            BookingDGV.DataSource = dt;
+            Con.Close();
+        }
+
+
         private void RoomCb_SelectionChangeCommitted(object sender, EventArgs e)
         {
             FetchCost();
@@ -289,6 +401,46 @@ namespace HotelManagmentSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearBooking();
+        }
+
+        private void BNumSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            BookNumberSearch();
+        }
+
+        private void RNumSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            RoomNumberSearch();
+        }
+
+        private void CNumSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            CustomerNumberSearch();
+        }
+
+        private void DurationSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            DurationSearch();
+        }
+
+        private void CostSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            CostRoom();
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            ResetBooking();
+        }
+
+        private void BookDateTimeSearch_ValueChanged(object sender, EventArgs e)
+        {
+            BookDateTimeSearchBooking();
         }
     }
 }

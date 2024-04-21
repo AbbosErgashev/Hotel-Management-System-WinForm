@@ -55,9 +55,22 @@
             pictureBox9 = new PictureBox();
             label12 = new Label();
             panelLogOut = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            GenderSearchCb = new ComboBox();
+            ResetBtn = new Button();
+            label20 = new Label();
+            NameSearchTbl = new TextBox();
+            label19 = new Label();
+            PhoneSearchTbl = new TextBox();
+            label18 = new Label();
+            label17 = new Label();
+            PasswordSearchTbl = new TextBox();
+            label21 = new Label();
+            IdSearchTbl = new TextBox();
+            ClearBtn = new Button();
             label16 = new Label();
             UId = new TextBox();
             label14 = new Label();
@@ -75,7 +88,6 @@
             panel12 = new Panel();
             pictureBox10 = new PictureBox();
             label15 = new Label();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
@@ -94,11 +106,11 @@
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panelLogOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)UserDGV).BeginInit();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -383,6 +395,16 @@
             panelLogOut.TabIndex = 6;
             panelLogOut.MouseClick += panelLogOut_MouseClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(163, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 15;
+            pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -408,6 +430,18 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(GenderSearchCb);
+            panel2.Controls.Add(ResetBtn);
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(NameSearchTbl);
+            panel2.Controls.Add(label19);
+            panel2.Controls.Add(PhoneSearchTbl);
+            panel2.Controls.Add(label18);
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(PasswordSearchTbl);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(IdSearchTbl);
+            panel2.Controls.Add(ClearBtn);
             panel2.Controls.Add(label16);
             panel2.Controls.Add(UId);
             panel2.Controls.Add(label14);
@@ -427,6 +461,119 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
+            // 
+            // GenderSearchCb
+            // 
+            GenderSearchCb.FormattingEnabled = true;
+            GenderSearchCb.Items.AddRange(new object[] { "Male", "Female" });
+            GenderSearchCb.Location = new Point(662, 365);
+            GenderSearchCb.Name = "GenderSearchCb";
+            GenderSearchCb.Size = new Size(181, 33);
+            GenderSearchCb.TabIndex = 46;
+            GenderSearchCb.Text = "Gender";
+            GenderSearchCb.SelectedIndexChanged += GenderSearchCb_SelectedIndexChanged;
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.Transparent;
+            ResetBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            ResetBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ResetBtn.Location = new Point(893, 239);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(115, 49);
+            ResetBtn.TabIndex = 45;
+            ResetBtn.Text = "Reset Filter";
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(260, 340);
+            label20.Name = "label20";
+            label20.Size = new Size(141, 25);
+            label20.TabIndex = 44;
+            label20.Text = "Search by Name";
+            // 
+            // NameSearchTbl
+            // 
+            NameSearchTbl.Location = new Point(265, 367);
+            NameSearchTbl.Name = "NameSearchTbl";
+            NameSearchTbl.Size = new Size(181, 31);
+            NameSearchTbl.TabIndex = 43;
+            NameSearchTbl.TextChanged += NameSearchTbl_TextChanged;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(459, 339);
+            label19.Name = "label19";
+            label19.Size = new Size(144, 25);
+            label19.TabIndex = 42;
+            label19.Text = "Search by Phone";
+            // 
+            // PhoneSearchTbl
+            // 
+            PhoneSearchTbl.Location = new Point(464, 367);
+            PhoneSearchTbl.Name = "PhoneSearchTbl";
+            PhoneSearchTbl.Size = new Size(178, 31);
+            PhoneSearchTbl.TabIndex = 41;
+            PhoneSearchTbl.TextChanged += PhoneSearchTbl_TextChanged;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(657, 338);
+            label18.Name = "label18";
+            label18.Size = new Size(121, 25);
+            label18.TabIndex = 40;
+            label18.Text = "Gender Check";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(855, 340);
+            label17.Name = "label17";
+            label17.Size = new Size(169, 25);
+            label17.TabIndex = 38;
+            label17.Text = "Search by Password";
+            // 
+            // PasswordSearchTbl
+            // 
+            PasswordSearchTbl.Location = new Point(860, 367);
+            PasswordSearchTbl.Name = "PasswordSearchTbl";
+            PasswordSearchTbl.Size = new Size(164, 31);
+            PasswordSearchTbl.TabIndex = 37;
+            PasswordSearchTbl.TextChanged += PasswordSearchTbl_TextChanged;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(59, 340);
+            label21.Name = "label21";
+            label21.Size = new Size(110, 25);
+            label21.TabIndex = 36;
+            label21.Text = "Search by Id";
+            // 
+            // IdSearchTbl
+            // 
+            IdSearchTbl.Location = new Point(64, 367);
+            IdSearchTbl.Name = "IdSearchTbl";
+            IdSearchTbl.Size = new Size(184, 31);
+            IdSearchTbl.TabIndex = 35;
+            IdSearchTbl.TextChanged += IdSearchTbl_TextChanged;
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Transparent;
+            ClearBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ClearBtn.Location = new Point(718, 239);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(125, 49);
+            ClearBtn.TabIndex = 26;
+            ClearBtn.Text = "Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
             // 
             // label16
             // 
@@ -479,7 +626,7 @@
             // DeleteBtn
             // 
             DeleteBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            DeleteBtn.Location = new Point(660, 243);
+            DeleteBtn.Location = new Point(531, 239);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(125, 49);
             DeleteBtn.TabIndex = 7;
@@ -490,7 +637,7 @@
             // SaveBtn
             // 
             SaveBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            SaveBtn.Location = new Point(451, 243);
+            SaveBtn.Location = new Point(354, 239);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(125, 49);
             SaveBtn.TabIndex = 6;
@@ -501,7 +648,7 @@
             // EditBtn
             // 
             EditBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            EditBtn.Location = new Point(224, 243);
+            EditBtn.Location = new Point(176, 239);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(125, 49);
             EditBtn.TabIndex = 5;
@@ -514,17 +661,17 @@
             UserDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             UserDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             UserDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            UserDGV.Location = new Point(0, 333);
+            UserDGV.Location = new Point(0, 402);
             UserDGV.Name = "UserDGV";
             UserDGV.RowHeadersWidth = 51;
-            UserDGV.Size = new Size(1064, 433);
+            UserDGV.Size = new Size(1064, 364);
             UserDGV.TabIndex = 8;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label10.Location = new Point(402, 35);
+            label10.Location = new Point(402, 23);
             label10.Name = "label10";
             label10.Size = new Size(198, 38);
             label10.TabIndex = 7;
@@ -589,16 +736,6 @@
             label15.Text = "Rooms";
             label15.Click += label15_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(163, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(55, 41);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 15;
-            pictureBox1.TabStop = false;
-            // 
             // Users
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -641,13 +778,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panelLogOut.ResumeLayout(false);
             panelLogOut.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)UserDGV).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -700,5 +837,18 @@
         private Label label16;
         private TextBox UId;
         private PictureBox pictureBox1;
+        private Button ClearBtn;
+        private Label label21;
+        private TextBox IdSearchTbl;
+        private Label label20;
+        private TextBox NameSearchTbl;
+        private Label label19;
+        private TextBox PhoneSearchTbl;
+        private Label label18;
+        private Label label17;
+        private TextBox PasswordSearchTbl;
+        private Button ResetBtn;
+        private ComboBox GenderSearchCb;
+        private ComboBox GenderSearch;
     }
 }

@@ -43,10 +43,19 @@
             pictureBox4 = new PictureBox();
             label6 = new Label();
             panel3 = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label15 = new Label();
+            IdSearchTbl = new TextBox();
+            label14 = new Label();
+            StatusSearchTbl = new TextBox();
+            label13 = new Label();
+            CostSearchTbl = new TextBox();
+            ResetBtn = new Button();
             label12 = new Label();
+            ClearBtn = new Button();
             TId = new TextBox();
             label11 = new Label();
             CostTb = new TextBox();
@@ -63,7 +72,6 @@
             panel7 = new Panel();
             pictureBox5 = new PictureBox();
             label7 = new Label();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -74,13 +82,13 @@
             panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TypesDGV).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -238,6 +246,16 @@
             panel3.TabIndex = 6;
             panel3.MouseClick += panel3_MouseClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(161, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -263,7 +281,15 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(label15);
+            panel2.Controls.Add(IdSearchTbl);
+            panel2.Controls.Add(label14);
+            panel2.Controls.Add(StatusSearchTbl);
+            panel2.Controls.Add(label13);
+            panel2.Controls.Add(CostSearchTbl);
+            panel2.Controls.Add(ResetBtn);
             panel2.Controls.Add(label12);
+            panel2.Controls.Add(ClearBtn);
             panel2.Controls.Add(TId);
             panel2.Controls.Add(label11);
             panel2.Controls.Add(CostTb);
@@ -280,6 +306,73 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 10.2F);
+            label15.Location = new Point(56, 301);
+            label15.Name = "label15";
+            label15.Size = new Size(104, 23);
+            label15.TabIndex = 35;
+            label15.Text = "Search by Id";
+            // 
+            // IdSearchTbl
+            // 
+            IdSearchTbl.Location = new Point(61, 329);
+            IdSearchTbl.Name = "IdSearchTbl";
+            IdSearchTbl.Size = new Size(156, 31);
+            IdSearchTbl.TabIndex = 34;
+            IdSearchTbl.TextChanged += IdSearchTbl_TextChanged;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 10.2F);
+            label14.Location = new Point(391, 300);
+            label14.Name = "label14";
+            label14.Size = new Size(135, 23);
+            label14.TabIndex = 33;
+            label14.Text = "Search by Status";
+            // 
+            // StatusSearchTbl
+            // 
+            StatusSearchTbl.Location = new Point(395, 328);
+            StatusSearchTbl.Name = "StatusSearchTbl";
+            StatusSearchTbl.Size = new Size(191, 31);
+            StatusSearchTbl.TabIndex = 32;
+            StatusSearchTbl.TextChanged += StatusSearchTbl_TextChanged;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 10.2F);
+            label13.Location = new Point(722, 304);
+            label13.Name = "label13";
+            label13.Size = new Size(123, 23);
+            label13.TabIndex = 31;
+            label13.Text = "Search by Cost";
+            // 
+            // CostSearchTbl
+            // 
+            CostSearchTbl.Location = new Point(726, 329);
+            CostSearchTbl.Name = "CostSearchTbl";
+            CostSearchTbl.Size = new Size(164, 31);
+            CostSearchTbl.TabIndex = 30;
+            CostSearchTbl.TextChanged += CostSearchTbl_TextChanged;
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.Transparent;
+            ResetBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            ResetBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ResetBtn.Location = new Point(933, 325);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(107, 37);
+            ResetBtn.TabIndex = 29;
+            ResetBtn.Text = "Reset";
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -288,6 +381,18 @@
             label12.Size = new Size(28, 25);
             label12.TabIndex = 15;
             label12.Text = "Id";
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Transparent;
+            ClearBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ClearBtn.Location = new Point(724, 191);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(125, 49);
+            ClearBtn.TabIndex = 28;
+            ClearBtn.Text = "Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
             // 
             // TId
             // 
@@ -315,7 +420,7 @@
             // DeleteBtn
             // 
             DeleteBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            DeleteBtn.Location = new Point(666, 210);
+            DeleteBtn.Location = new Point(551, 191);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(125, 49);
             DeleteBtn.TabIndex = 5;
@@ -326,7 +431,7 @@
             // SaveBtn
             // 
             SaveBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            SaveBtn.Location = new Point(459, 210);
+            SaveBtn.Location = new Point(377, 191);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(125, 49);
             SaveBtn.TabIndex = 4;
@@ -337,7 +442,7 @@
             // EditBtn
             // 
             EditBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            EditBtn.Location = new Point(232, 210);
+            EditBtn.Location = new Point(196, 191);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(125, 49);
             EditBtn.TabIndex = 3;
@@ -350,17 +455,17 @@
             TypesDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TypesDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TypesDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TypesDGV.Location = new Point(0, 318);
+            TypesDGV.Location = new Point(0, 365);
             TypesDGV.Name = "TypesDGV";
             TypesDGV.RowHeadersWidth = 51;
-            TypesDGV.Size = new Size(1064, 448);
+            TypesDGV.Size = new Size(1064, 401);
             TypesDGV.TabIndex = 8;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label10.Location = new Point(402, 35);
+            label10.Location = new Point(402, 26);
             label10.Name = "label10";
             label10.Size = new Size(235, 38);
             label10.TabIndex = 7;
@@ -445,16 +550,6 @@
             label7.Text = "Customers";
             label7.Click += label7_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(161, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(55, 41);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 12;
-            pictureBox1.TabStop = false;
-            // 
             // Types
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -486,6 +581,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TypesDGV).EndInit();
@@ -495,7 +591,6 @@
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -536,5 +631,13 @@
         private Label label12;
         private TextBox TId;
         private PictureBox pictureBox1;
+        private Button ResetBtn;
+        private Button ClearBtn;
+        private Label label15;
+        private TextBox IdSearchTbl;
+        private Label label14;
+        private Label label13;
+        private TextBox CostSearchTbl;
+        private TextBox StatusSearchTbl;
     }
 }
