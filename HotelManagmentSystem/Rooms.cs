@@ -102,6 +102,14 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void ClearRooms()
+        {
+            RId.Text = "";
+            RnameTb.Text = "";
+            RTypeCb.SelectedIndex = -1;
+            StatusTb.Text = "Status";
+        }
+
         private void Populate()
         {
             try
@@ -148,6 +156,108 @@ namespace HotelManagmentSystem
             {
                 Con.Close();
             }
+        }
+
+        private void IdSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RNum, RName, RType, RStatus from RoomTbl where RNum LIKE '%" + IdSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void NameSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RNum, RName, RType, RStatus from RoomTbl where RName LIKE '%" + NameSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void TypeSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RNum, RName, RType, RStatus from RoomTbl where RType LIKE '%" + TypeSearchCb.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void StatusSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select RNum, RName, RType, RStatus from RoomTbl where RStatus LIKE '%" + StatusSearchCb.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            DataTable dt = new DataTable();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt;
+            Con.Close();
+        }
+
+        private void ResetRoomsFilter()
+        {
+            IdSearchTbl.Text = "";
+            NameSearchTbl.Text = "";
+            TypeSearchCb.SelectedIndex = -1;
+            TypeSearchCb.Text = "";
+            StatusSearchCb.SelectedIndex = -1;
+            StatusSearchCb.Text = "Filter by Status";
+            Populate();
+            Con.Close();
+        }
+
+        private void FilterByType()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from RoomTbl where RType='" + TypeSearchCb.SelectedIndex + "'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void FilterStatus()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from RoomTbl where RStatus='" + StatusSearchCb.SelectedIndex + "'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            RoomsDGV.DataSource = dt.Tables[0];
+            Con.Close();
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -205,6 +315,46 @@ namespace HotelManagmentSystem
             Dashboard dashboard = new Dashboard();
             dashboard.Show();
             this.Hide();
+        }
+
+        private void IdSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            IdSearch();
+        }
+
+        private void NameSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            NameSearch();
+        }
+
+        private void TypeSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            TypeSearch();
+        }
+
+        private void StatusSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            StatusSearch();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearRooms();
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            ResetRoomsFilter();
+        }
+
+        private void TypeSearchCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterByType();
+        }
+
+        private void StatusSearchCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterStatus();
         }
     }
 }

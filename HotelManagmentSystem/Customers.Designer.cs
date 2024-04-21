@@ -58,9 +58,20 @@
             pictureBox9 = new PictureBox();
             label12 = new Label();
             panel3 = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            ResetBtn = new Button();
+            ClearBtn = new Button();
+            CFilterCb = new ComboBox();
+            label19 = new Label();
+            label18 = new Label();
+            CPhoneSearchTbl = new TextBox();
+            label17 = new Label();
+            CNameSearchTbl = new TextBox();
+            label16 = new Label();
+            CIdSearchTbl = new TextBox();
             label14 = new Label();
             CId = new TextBox();
             label13 = new Label();
@@ -73,7 +84,6 @@
             label4 = new Label();
             CnameTb = new TextBox();
             GenderCb = new ComboBox();
-            pictureBox1 = new PictureBox();
             panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel1.SuspendLayout();
@@ -94,9 +104,9 @@
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDGV).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel12
@@ -416,6 +426,16 @@
             panel3.TabIndex = 6;
             panel3.MouseClick += panel3_MouseClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(164, 8);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 14;
+            pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -441,6 +461,16 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(ResetBtn);
+            panel2.Controls.Add(ClearBtn);
+            panel2.Controls.Add(CFilterCb);
+            panel2.Controls.Add(label19);
+            panel2.Controls.Add(label18);
+            panel2.Controls.Add(CPhoneSearchTbl);
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(CNameSearchTbl);
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(CIdSearchTbl);
             panel2.Controls.Add(label14);
             panel2.Controls.Add(CId);
             panel2.Controls.Add(label13);
@@ -459,10 +489,110 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.Transparent;
+            ResetBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            ResetBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ResetBtn.Location = new Point(971, 315);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(83, 37);
+            ResetBtn.TabIndex = 26;
+            ResetBtn.Text = "Reset";
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Transparent;
+            ClearBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ClearBtn.Location = new Point(817, 191);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(125, 49);
+            ClearBtn.TabIndex = 25;
+            ClearBtn.Text = "Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
+            // 
+            // CFilterCb
+            // 
+            CFilterCb.FormattingEnabled = true;
+            CFilterCb.Items.AddRange(new object[] { "Male", "Female" });
+            CFilterCb.Location = new Point(811, 316);
+            CFilterCb.Name = "CFilterCb";
+            CFilterCb.Size = new Size(145, 33);
+            CFilterCb.TabIndex = 24;
+            CFilterCb.Text = "Filtr by Gender";
+            CFilterCb.SelectedIndexChanged += CFilterCb_SelectedIndexChanged;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 10.2F);
+            label19.Location = new Point(807, 292);
+            label19.Name = "label19";
+            label19.Size = new Size(117, 23);
+            label19.TabIndex = 23;
+            label19.Text = "Gender Check";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 10.2F);
+            label18.Location = new Point(558, 292);
+            label18.Name = "label18";
+            label18.Size = new Size(138, 23);
+            label18.TabIndex = 21;
+            label18.Text = "Search by Phone";
+            // 
+            // CPhoneSearchTbl
+            // 
+            CPhoneSearchTbl.Location = new Point(563, 318);
+            CPhoneSearchTbl.Name = "CPhoneSearchTbl";
+            CPhoneSearchTbl.Size = new Size(214, 31);
+            CPhoneSearchTbl.TabIndex = 20;
+            CPhoneSearchTbl.TextChanged += CPhoneSearchTbl_TextChanged;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 10.2F);
+            label17.Location = new Point(310, 292);
+            label17.Name = "label17";
+            label17.Size = new Size(135, 23);
+            label17.TabIndex = 19;
+            label17.Text = "Search by Name";
+            // 
+            // CNameSearchTbl
+            // 
+            CNameSearchTbl.Location = new Point(314, 318);
+            CNameSearchTbl.Name = "CNameSearchTbl";
+            CNameSearchTbl.Size = new Size(208, 31);
+            CNameSearchTbl.TabIndex = 18;
+            CNameSearchTbl.TextChanged += CNameSearchTbl_TextChanged;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 10.2F);
+            label16.Location = new Point(59, 292);
+            label16.Name = "label16";
+            label16.Size = new Size(104, 23);
+            label16.TabIndex = 17;
+            label16.Text = "Search by Id";
+            // 
+            // CIdSearchTbl
+            // 
+            CIdSearchTbl.Location = new Point(62, 318);
+            CIdSearchTbl.Name = "CIdSearchTbl";
+            CIdSearchTbl.Size = new Size(215, 31);
+            CIdSearchTbl.TabIndex = 16;
+            CIdSearchTbl.TextChanged += CIdSearch_TextChanged;
+            // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(66, 127);
+            label14.Location = new Point(66, 109);
             label14.Name = "label14";
             label14.Size = new Size(28, 25);
             label14.TabIndex = 15;
@@ -470,7 +600,7 @@
             // 
             // CId
             // 
-            CId.Location = new Point(96, 124);
+            CId.Location = new Point(96, 106);
             CId.Name = "CId";
             CId.Size = new Size(65, 31);
             CId.TabIndex = 0;
@@ -478,7 +608,7 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(562, 121);
+            label13.Location = new Point(562, 103);
             label13.Name = "label13";
             label13.Size = new Size(62, 25);
             label13.TabIndex = 13;
@@ -486,7 +616,7 @@
             // 
             // CPhoneTb
             // 
-            CPhoneTb.Location = new Point(626, 118);
+            CPhoneTb.Location = new Point(626, 100);
             CPhoneTb.Name = "CPhoneTb";
             CPhoneTb.Size = new Size(167, 31);
             CPhoneTb.TabIndex = 2;
@@ -494,7 +624,7 @@
             // DeleteBtn
             // 
             DeleteBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            DeleteBtn.Location = new Point(668, 216);
+            DeleteBtn.Location = new Point(606, 190);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(125, 49);
             DeleteBtn.TabIndex = 6;
@@ -505,7 +635,7 @@
             // SaveBtn
             // 
             SaveBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            SaveBtn.Location = new Point(459, 216);
+            SaveBtn.Location = new Point(397, 190);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(125, 49);
             SaveBtn.TabIndex = 5;
@@ -516,7 +646,7 @@
             // EditBtn
             // 
             EditBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            EditBtn.Location = new Point(232, 216);
+            EditBtn.Location = new Point(170, 190);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(125, 49);
             EditBtn.TabIndex = 4;
@@ -529,17 +659,17 @@
             CustomerDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CustomerDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             CustomerDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CustomerDGV.Location = new Point(0, 330);
+            CustomerDGV.Location = new Point(0, 355);
             CustomerDGV.Name = "CustomerDGV";
             CustomerDGV.RowHeadersWidth = 51;
-            CustomerDGV.Size = new Size(1064, 436);
+            CustomerDGV.Size = new Size(1064, 411);
             CustomerDGV.TabIndex = 8;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label10.Location = new Point(402, 35);
+            label10.Location = new Point(402, 24);
             label10.Name = "label10";
             label10.Size = new Size(263, 38);
             label10.TabIndex = 7;
@@ -548,7 +678,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(218, 125);
+            label4.Location = new Point(218, 107);
             label4.Name = "label4";
             label4.Size = new Size(59, 25);
             label4.TabIndex = 4;
@@ -556,7 +686,7 @@
             // 
             // CnameTb
             // 
-            CnameTb.Location = new Point(279, 122);
+            CnameTb.Location = new Point(279, 104);
             CnameTb.Name = "CnameTb";
             CnameTb.Size = new Size(245, 31);
             CnameTb.TabIndex = 1;
@@ -565,21 +695,11 @@
             // 
             GenderCb.FormattingEnabled = true;
             GenderCb.Items.AddRange(new object[] { "Male", "Female" });
-            GenderCb.Location = new Point(846, 116);
+            GenderCb.Location = new Point(846, 98);
             GenderCb.Name = "GenderCb";
             GenderCb.Size = new Size(151, 33);
             GenderCb.TabIndex = 3;
             GenderCb.Text = "Gender";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(164, 8);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(55, 41);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
             // 
             // Customers
             // 
@@ -626,10 +746,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDGV).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -680,5 +800,15 @@
         private Label label14;
         private TextBox CId;
         private PictureBox pictureBox1;
+        private Label label16;
+        private TextBox CIdSearchTbl;
+        private Label label19;
+        private Label label18;
+        private TextBox CPhoneSearchTbl;
+        private Label label17;
+        private TextBox CNameSearchTbl;
+        private ComboBox CFilterCb;
+        private Button ClearBtn;
+        private Button ResetBtn;
     }
 }

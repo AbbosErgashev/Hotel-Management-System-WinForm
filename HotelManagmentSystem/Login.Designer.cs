@@ -104,6 +104,7 @@
             PasswordTbl.Cursor = Cursors.IBeam;
             PasswordTbl.Location = new Point(260, 218);
             PasswordTbl.Name = "PasswordTbl";
+            PasswordTbl.PasswordChar = '*';
             PasswordTbl.Size = new Size(287, 31);
             PasswordTbl.TabIndex = 2;
             // 

@@ -69,6 +69,16 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            StatusSearchCb = new ComboBox();
+            TypeSearchCb = new ComboBox();
+            ResetBtn = new Button();
+            ClearBtn = new Button();
+            label23 = new Label();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            NameSearchTbl = new TextBox();
+            IdSearchTbl = new TextBox();
             label14 = new Label();
             RId = new TextBox();
             DeleteBtn = new Button();
@@ -548,6 +558,16 @@
             // panel2
             // 
             panel2.BackColor = Color.Silver;
+            panel2.Controls.Add(StatusSearchCb);
+            panel2.Controls.Add(TypeSearchCb);
+            panel2.Controls.Add(ResetBtn);
+            panel2.Controls.Add(ClearBtn);
+            panel2.Controls.Add(label23);
+            panel2.Controls.Add(label22);
+            panel2.Controls.Add(label21);
+            panel2.Controls.Add(label20);
+            panel2.Controls.Add(NameSearchTbl);
+            panel2.Controls.Add(IdSearchTbl);
             panel2.Controls.Add(label14);
             panel2.Controls.Add(RId);
             panel2.Controls.Add(DeleteBtn);
@@ -565,10 +585,113 @@
             panel2.Size = new Size(1064, 766);
             panel2.TabIndex = 0;
             // 
+            // StatusSearchCb
+            // 
+            StatusSearchCb.FormattingEnabled = true;
+            StatusSearchCb.Items.AddRange(new object[] { "Booked", "Aviable" });
+            StatusSearchCb.Location = new Point(810, 355);
+            StatusSearchCb.Name = "StatusSearchCb";
+            StatusSearchCb.Size = new Size(145, 33);
+            StatusSearchCb.TabIndex = 17;
+            StatusSearchCb.Text = "Filter by Status";
+            StatusSearchCb.SelectedIndexChanged += StatusSearchCb_SelectedIndexChanged;
+            // 
+            // TypeSearchCb
+            // 
+            TypeSearchCb.FormattingEnabled = true;
+            TypeSearchCb.Items.AddRange(new object[] { "Standart", "Single", "VIP", "King" });
+            TypeSearchCb.Location = new Point(559, 356);
+            TypeSearchCb.Name = "TypeSearchCb";
+            TypeSearchCb.Size = new Size(234, 33);
+            TypeSearchCb.TabIndex = 16;
+            TypeSearchCb.Text = "Filter by Room Types";
+            TypeSearchCb.SelectedIndexChanged += TypeSearchCb_SelectedIndexChanged;
+            // 
+            // ResetBtn
+            // 
+            ResetBtn.BackColor = Color.Transparent;
+            ResetBtn.BackgroundImageLayout = ImageLayout.Zoom;
+            ResetBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ResetBtn.Location = new Point(962, 354);
+            ResetBtn.Name = "ResetBtn";
+            ResetBtn.Size = new Size(94, 37);
+            ResetBtn.TabIndex = 27;
+            ResetBtn.Text = "Reset";
+            ResetBtn.UseVisualStyleBackColor = false;
+            ResetBtn.Click += ResetBtn_Click;
+            // 
+            // ClearBtn
+            // 
+            ClearBtn.BackColor = Color.Transparent;
+            ClearBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            ClearBtn.Location = new Point(798, 212);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(125, 49);
+            ClearBtn.TabIndex = 22;
+            ClearBtn.Text = "Clear";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Segoe UI", 10.2F);
+            label23.Location = new Point(807, 329);
+            label23.Name = "label23";
+            label23.Size = new Size(135, 23);
+            label23.TabIndex = 21;
+            label23.Text = "Search by Status";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 10.2F);
+            label22.Location = new Point(555, 330);
+            label22.Name = "label22";
+            label22.Size = new Size(124, 23);
+            label22.TabIndex = 20;
+            label22.Text = "Search by Type";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Segoe UI", 10.2F);
+            label21.Location = new Point(312, 331);
+            label21.Name = "label21";
+            label21.Size = new Size(135, 23);
+            label21.TabIndex = 19;
+            label21.Text = "Search by Name";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Segoe UI", 10.2F);
+            label20.Location = new Point(65, 332);
+            label20.Name = "label20";
+            label20.Size = new Size(104, 23);
+            label20.TabIndex = 18;
+            label20.Text = "Search by Id";
+            // 
+            // NameSearchTbl
+            // 
+            NameSearchTbl.Location = new Point(315, 358);
+            NameSearchTbl.Name = "NameSearchTbl";
+            NameSearchTbl.Size = new Size(219, 31);
+            NameSearchTbl.TabIndex = 15;
+            NameSearchTbl.TextChanged += NameSearchTbl_TextChanged;
+            // 
+            // IdSearchTbl
+            // 
+            IdSearchTbl.Location = new Point(68, 358);
+            IdSearchTbl.Name = "IdSearchTbl";
+            IdSearchTbl.Size = new Size(215, 31);
+            IdSearchTbl.TabIndex = 14;
+            IdSearchTbl.TextChanged += IdSearchTbl_TextChanged;
+            // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(109, 122);
+            label14.Location = new Point(109, 117);
             label14.Name = "label14";
             label14.Size = new Size(28, 25);
             label14.TabIndex = 13;
@@ -576,7 +699,7 @@
             // 
             // RId
             // 
-            RId.Location = new Point(140, 120);
+            RId.Location = new Point(140, 115);
             RId.Name = "RId";
             RId.Size = new Size(86, 31);
             RId.TabIndex = 0;
@@ -585,7 +708,7 @@
             // 
             DeleteBtn.BackColor = Color.Transparent;
             DeleteBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            DeleteBtn.Location = new Point(668, 221);
+            DeleteBtn.Location = new Point(592, 212);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(125, 49);
             DeleteBtn.TabIndex = 6;
@@ -597,7 +720,7 @@
             // 
             SaveBtn.BackColor = Color.Transparent;
             SaveBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            SaveBtn.Location = new Point(459, 221);
+            SaveBtn.Location = new Point(383, 212);
             SaveBtn.Name = "SaveBtn";
             SaveBtn.Size = new Size(125, 49);
             SaveBtn.TabIndex = 5;
@@ -609,7 +732,7 @@
             // 
             EditBtn.BackColor = Color.Transparent;
             EditBtn.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            EditBtn.Location = new Point(249, 221);
+            EditBtn.Location = new Point(173, 212);
             EditBtn.Name = "EditBtn";
             EditBtn.Size = new Size(125, 49);
             EditBtn.TabIndex = 4;
@@ -622,17 +745,17 @@
             RoomsDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RoomsDGV.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RoomsDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RoomsDGV.Location = new Point(0, 326);
+            RoomsDGV.Location = new Point(0, 397);
             RoomsDGV.Name = "RoomsDGV";
             RoomsDGV.RowHeadersWidth = 51;
-            RoomsDGV.Size = new Size(1064, 440);
+            RoomsDGV.Size = new Size(1064, 369);
             RoomsDGV.TabIndex = 8;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label10.Location = new Point(402, 35);
+            label10.Location = new Point(402, 26);
             label10.Name = "label10";
             label10.Size = new Size(216, 38);
             label10.TabIndex = 7;
@@ -641,7 +764,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(260, 119);
+            label4.Location = new Point(260, 116);
             label4.Name = "label4";
             label4.Size = new Size(59, 25);
             label4.TabIndex = 4;
@@ -649,7 +772,7 @@
             // 
             // RnameTb
             // 
-            RnameTb.Location = new Point(322, 117);
+            RnameTb.Location = new Point(322, 114);
             RnameTb.Name = "RnameTb";
             RnameTb.Size = new Size(278, 31);
             RnameTb.TabIndex = 1;
@@ -658,7 +781,7 @@
             // 
             StatusTb.FormattingEnabled = true;
             StatusTb.Items.AddRange(new object[] { "Booked", "Aviable" });
-            StatusTb.Location = new Point(823, 115);
+            StatusTb.Location = new Point(823, 112);
             StatusTb.Name = "StatusTb";
             StatusTb.Size = new Size(151, 33);
             StatusTb.TabIndex = 3;
@@ -668,7 +791,7 @@
             // 
             RTypeCb.FormattingEnabled = true;
             RTypeCb.Items.AddRange(new object[] { "Standart", "Single", "VIP", "King" });
-            RTypeCb.Location = new Point(642, 115);
+            RTypeCb.Location = new Point(642, 112);
             RTypeCb.Name = "RTypeCb";
             RTypeCb.Size = new Size(151, 33);
             RTypeCb.TabIndex = 2;
@@ -845,5 +968,15 @@
         private Label label19;
         private PictureBox pictureBox11;
         private Label label9;
+        private TextBox NameSearchTbl;
+        private TextBox IdSearchTbl;
+        private Label label20;
+        private Label label23;
+        private Label label22;
+        private Label label21;
+        private Button ClearBtn;
+        private Button ResetBtn;
+        private ComboBox StatusSearchCb;
+        private ComboBox TypeSearchCb;
     }
 }

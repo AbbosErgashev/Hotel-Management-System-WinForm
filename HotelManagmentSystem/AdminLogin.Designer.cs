@@ -109,6 +109,7 @@
             // 
             PasswordTb.Location = new Point(275, 223);
             PasswordTb.Name = "PasswordTb";
+            PasswordTb.PasswordChar = '*';
             PasswordTb.Size = new Size(250, 31);
             PasswordTb.TabIndex = 0;
             // 

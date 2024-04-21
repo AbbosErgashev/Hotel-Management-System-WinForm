@@ -55,23 +55,25 @@
             pictureBox9 = new PictureBox();
             label12 = new Label();
             panelLogOut = new Panel();
+            pictureBox1 = new PictureBox();
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             panel18 = new Panel();
-            label29 = new Label();
+            XMailRuLbl = new LinkLabel();
+            MailRuLbl = new LinkLabel();
+            YouTubeChannelLbl = new LinkLabel();
+            VKLinkLbl = new LinkLabel();
+            FacebookLinkLbl = new LinkLabel();
+            InstagramLinkLbl = new LinkLabel();
             label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
-            label21 = new Label();
+            GitLabLink = new LinkLabel();
+            GitHubLinkLbl = new LinkLabel();
+            TelegramLink = new LinkLabel();
+            EmailLinkLbl = new LinkLabel();
+            linkLabel1 = new LinkLabel();
             label25 = new Label();
-            label26 = new Label();
-            label27 = new Label();
-            label28 = new Label();
-            label24 = new Label();
-            label23 = new Label();
-            label22 = new Label();
-            label15 = new Label();
+            label29 = new Label();
             label9 = new Label();
             panel16 = new Panel();
             IncomeByCustomerLbl = new Label();
@@ -93,7 +95,6 @@
             pictureBox7 = new PictureBox();
             label3 = new Label();
             panel12 = new Panel();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
@@ -112,6 +113,7 @@
             panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             panelLogOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel18.SuspendLayout();
             panel16.SuspendLayout();
@@ -121,7 +123,6 @@
             panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -407,6 +408,16 @@
             panelLogOut.TabIndex = 6;
             panelLogOut.MouseClick += panelLogOut_MouseClick;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(165, 7);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(55, 41);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -449,162 +460,218 @@
             // panel18
             // 
             panel18.BackColor = Color.Gray;
-            panel18.Controls.Add(label29);
+            panel18.Controls.Add(XMailRuLbl);
+            panel18.Controls.Add(MailRuLbl);
+            panel18.Controls.Add(YouTubeChannelLbl);
+            panel18.Controls.Add(VKLinkLbl);
+            panel18.Controls.Add(FacebookLinkLbl);
+            panel18.Controls.Add(InstagramLinkLbl);
             panel18.Controls.Add(label17);
-            panel18.Controls.Add(label18);
-            panel18.Controls.Add(label19);
-            panel18.Controls.Add(label21);
+            panel18.Controls.Add(GitLabLink);
+            panel18.Controls.Add(GitHubLinkLbl);
+            panel18.Controls.Add(TelegramLink);
+            panel18.Controls.Add(EmailLinkLbl);
+            panel18.Controls.Add(linkLabel1);
             panel18.Controls.Add(label25);
-            panel18.Controls.Add(label26);
-            panel18.Controls.Add(label27);
-            panel18.Controls.Add(label28);
-            panel18.Controls.Add(label24);
-            panel18.Controls.Add(label23);
-            panel18.Controls.Add(label22);
-            panel18.Controls.Add(label15);
+            panel18.Controls.Add(label29);
             panel18.Controls.Add(label9);
-            panel18.Location = new Point(3, 427);
+            panel18.Location = new Point(3, 460);
             panel18.Name = "panel18";
-            panel18.Size = new Size(1058, 336);
+            panel18.Size = new Size(1058, 303);
             panel18.TabIndex = 12;
             // 
-            // label29
+            // XMailRuLbl
             // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Segoe UI", 12F);
-            label29.Location = new Point(739, 24);
-            label29.Name = "label29";
-            label29.Size = new Size(240, 28);
-            label29.TabIndex = 21;
-            label29.Text = "Developer by Abbos 2024";
+            XMailRuLbl.ActiveLinkColor = Color.White;
+            XMailRuLbl.AutoSize = true;
+            XMailRuLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            XMailRuLbl.LinkColor = Color.Black;
+            XMailRuLbl.Location = new Point(383, 210);
+            XMailRuLbl.Name = "XMailRuLbl";
+            XMailRuLbl.Size = new Size(81, 25);
+            XMailRuLbl.TabIndex = 37;
+            XMailRuLbl.TabStop = true;
+            XMailRuLbl.Text = "XMail.ru";
+            XMailRuLbl.LinkClicked += XMailRuLbl_LinkClicked;
+            // 
+            // MailRuLbl
+            // 
+            MailRuLbl.ActiveLinkColor = Color.White;
+            MailRuLbl.AutoSize = true;
+            MailRuLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            MailRuLbl.LinkColor = Color.Black;
+            MailRuLbl.Location = new Point(383, 155);
+            MailRuLbl.Name = "MailRuLbl";
+            MailRuLbl.Size = new Size(70, 25);
+            MailRuLbl.TabIndex = 36;
+            MailRuLbl.TabStop = true;
+            MailRuLbl.Text = "Mail.ru";
+            MailRuLbl.LinkClicked += MailRuLbl_LinkClicked;
+            // 
+            // YouTubeChannelLbl
+            // 
+            YouTubeChannelLbl.ActiveLinkColor = Color.White;
+            YouTubeChannelLbl.AutoSize = true;
+            YouTubeChannelLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            YouTubeChannelLbl.LinkColor = Color.Black;
+            YouTubeChannelLbl.Location = new Point(584, 101);
+            YouTubeChannelLbl.Name = "YouTubeChannelLbl";
+            YouTubeChannelLbl.Size = new Size(155, 25);
+            YouTubeChannelLbl.TabIndex = 35;
+            YouTubeChannelLbl.TabStop = true;
+            YouTubeChannelLbl.Text = "YouTube Channel";
+            YouTubeChannelLbl.LinkClicked += YouTubeChannelLbl_LinkClicked;
+            // 
+            // VKLinkLbl
+            // 
+            VKLinkLbl.ActiveLinkColor = Color.White;
+            VKLinkLbl.AutoSize = true;
+            VKLinkLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            VKLinkLbl.LinkColor = Color.Black;
+            VKLinkLbl.Location = new Point(844, 210);
+            VKLinkLbl.Name = "VKLinkLbl";
+            VKLinkLbl.Size = new Size(100, 25);
+            VKLinkLbl.TabIndex = 34;
+            VKLinkLbl.TabStop = true;
+            VKLinkLbl.Text = "ВКонтакте";
+            VKLinkLbl.LinkClicked += VKLinkLbl_LinkClicked;
+            // 
+            // FacebookLinkLbl
+            // 
+            FacebookLinkLbl.ActiveLinkColor = Color.White;
+            FacebookLinkLbl.AutoSize = true;
+            FacebookLinkLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            FacebookLinkLbl.LinkColor = Color.Black;
+            FacebookLinkLbl.Location = new Point(844, 155);
+            FacebookLinkLbl.Name = "FacebookLinkLbl";
+            FacebookLinkLbl.Size = new Size(89, 25);
+            FacebookLinkLbl.TabIndex = 33;
+            FacebookLinkLbl.TabStop = true;
+            FacebookLinkLbl.Text = "Facebook";
+            FacebookLinkLbl.LinkClicked += FacebookLinkLbl_LinkClicked;
+            // 
+            // InstagramLinkLbl
+            // 
+            InstagramLinkLbl.ActiveLinkColor = Color.White;
+            InstagramLinkLbl.AutoSize = true;
+            InstagramLinkLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            InstagramLinkLbl.LinkColor = Color.Black;
+            InstagramLinkLbl.Location = new Point(844, 101);
+            InstagramLinkLbl.Name = "InstagramLinkLbl";
+            InstagramLinkLbl.Size = new Size(95, 25);
+            InstagramLinkLbl.TabIndex = 32;
+            InstagramLinkLbl.TabStop = true;
+            InstagramLinkLbl.Text = "Instagram";
+            InstagramLinkLbl.LinkClicked += InstagramLinkLbl_LinkClicked;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 12F);
-            label17.Location = new Point(739, 142);
+            label17.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label17.Location = new Point(115, 98);
             label17.Name = "label17";
-            label17.Size = new Size(169, 28);
-            label17.TabIndex = 20;
-            label17.Text = "Manage Bookings";
+            label17.Size = new Size(182, 28);
+            label17.TabIndex = 31;
+            label17.Text = "+998 93 988 77 73";
             // 
-            // label18
+            // GitLabLink
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 12F);
-            label18.Location = new Point(740, 201);
-            label18.Name = "label18";
-            label18.Size = new Size(203, 28);
-            label18.TabIndex = 19;
-            label18.Text = "Manage Receptionists";
+            GitLabLink.ActiveLinkColor = Color.White;
+            GitLabLink.AutoSize = true;
+            GitLabLink.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            GitLabLink.LinkColor = Color.Black;
+            GitLabLink.Location = new Point(584, 213);
+            GitLabLink.Name = "GitLabLink";
+            GitLabLink.Size = new Size(66, 25);
+            GitLabLink.TabIndex = 30;
+            GitLabLink.TabStop = true;
+            GitLabLink.Text = "GitLab";
+            GitLabLink.LinkClicked += GitLabLink_LinkClicked;
             // 
-            // label19
+            // GitHubLinkLbl
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 12F);
-            label19.Location = new Point(740, 264);
-            label19.Name = "label19";
-            label19.Size = new Size(154, 28);
-            label19.TabIndex = 18;
-            label19.Text = "Manage Finance";
+            GitHubLinkLbl.ActiveLinkColor = Color.White;
+            GitHubLinkLbl.AutoSize = true;
+            GitHubLinkLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            GitHubLinkLbl.LinkColor = Color.Black;
+            GitHubLinkLbl.Location = new Point(584, 155);
+            GitHubLinkLbl.Name = "GitHubLinkLbl";
+            GitHubLinkLbl.Size = new Size(72, 25);
+            GitHubLinkLbl.TabIndex = 29;
+            GitHubLinkLbl.TabStop = true;
+            GitHubLinkLbl.Text = "GitHub";
+            GitHubLinkLbl.LinkClicked += GitHubLinkLbl_LinkClicked;
             // 
-            // label21
+            // TelegramLink
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 12F);
-            label21.Location = new Point(739, 89);
-            label21.Name = "label21";
-            label21.Size = new Size(148, 28);
-            label21.TabIndex = 17;
-            label21.Text = "Manage Rooms";
+            TelegramLink.ActiveLinkColor = Color.White;
+            TelegramLink.AutoSize = true;
+            TelegramLink.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            TelegramLink.LinkColor = Color.Black;
+            TelegramLink.Location = new Point(115, 210);
+            TelegramLink.Name = "TelegramLink";
+            TelegramLink.Size = new Size(88, 25);
+            TelegramLink.TabIndex = 28;
+            TelegramLink.TabStop = true;
+            TelegramLink.Text = "Telegram";
+            TelegramLink.LinkClicked += TelegramLink_LinkClicked;
+            // 
+            // EmailLinkLbl
+            // 
+            EmailLinkLbl.ActiveLinkColor = Color.White;
+            EmailLinkLbl.AutoSize = true;
+            EmailLinkLbl.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            EmailLinkLbl.LinkColor = Color.Black;
+            EmailLinkLbl.Location = new Point(383, 101);
+            EmailLinkLbl.Name = "EmailLinkLbl";
+            EmailLinkLbl.Size = new Size(60, 25);
+            EmailLinkLbl.TabIndex = 27;
+            EmailLinkLbl.TabStop = true;
+            EmailLinkLbl.Text = "Gmail";
+            EmailLinkLbl.LinkClicked += EmailLinkLbl_LinkClicked;
+            // 
+            // linkLabel1
+            // 
+            linkLabel1.ActiveLinkColor = Color.White;
+            linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            linkLabel1.LinkColor = Color.Black;
+            linkLabel1.Location = new Point(115, 152);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(83, 25);
+            linkLabel1.TabIndex = 26;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "LinkedIn";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // label25
             // 
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI", 12F);
-            label25.Location = new Point(427, 142);
+            label25.Location = new Point(427, 52);
             label25.Name = "label25";
-            label25.Size = new Size(169, 28);
-            label25.TabIndex = 16;
-            label25.Text = "Manage Bookings";
+            label25.Size = new Size(199, 28);
+            label25.TabIndex = 22;
+            label25.Text = "Contact to Developer";
             // 
-            // label26
+            // label29
             // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Segoe UI", 12F);
-            label26.Location = new Point(428, 201);
-            label26.Name = "label26";
-            label26.Size = new Size(203, 28);
-            label26.TabIndex = 15;
-            label26.Text = "Manage Receptionists";
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 12F);
-            label27.Location = new Point(428, 264);
-            label27.Name = "label27";
-            label27.Size = new Size(154, 28);
-            label27.TabIndex = 14;
-            label27.Text = "Manage Finance";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI", 12F);
-            label28.Location = new Point(428, 89);
-            label28.Name = "label28";
-            label28.Size = new Size(148, 28);
-            label28.TabIndex = 13;
-            label28.Text = "Manage Rooms";
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Segoe UI", 12F);
-            label24.Location = new Point(52, 142);
-            label24.Name = "label24";
-            label24.Size = new Size(169, 28);
-            label24.TabIndex = 8;
-            label24.Text = "Manage Bookings";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Segoe UI", 12F);
-            label23.Location = new Point(53, 201);
-            label23.Name = "label23";
-            label23.Size = new Size(203, 28);
-            label23.TabIndex = 7;
-            label23.Text = "Manage Receptionists";
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Segoe UI", 12F);
-            label22.Location = new Point(53, 264);
-            label22.Name = "label22";
-            label22.Size = new Size(154, 28);
-            label22.TabIndex = 6;
-            label22.Text = "Manage Finance";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F);
-            label15.Location = new Point(52, 89);
-            label15.Name = "label15";
-            label15.Size = new Size(148, 28);
-            label15.TabIndex = 1;
-            label15.Text = "Manage Rooms";
+            label29.AutoSize = true;
+            label29.Enabled = false;
+            label29.Font = new Font("Segoe UI", 12F);
+            label29.Location = new Point(445, 264);
+            label29.Name = "label29";
+            label29.Size = new Size(240, 28);
+            label29.TabIndex = 21;
+            label29.Text = "Developer by Abbos 2024";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F);
-            label9.Location = new Point(52, 24);
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label9.Location = new Point(304, 10);
             label9.Name = "label9";
-            label9.Size = new Size(461, 28);
+            label9.Size = new Size(485, 28);
             label9.TabIndex = 0;
             label9.Text = "Modern and Professional Hotel Managment System";
             // 
@@ -613,7 +680,7 @@
             panel16.BackColor = Color.LightGray;
             panel16.Controls.Add(IncomeByCustomerLbl);
             panel16.Controls.Add(label20);
-            panel16.Location = new Point(587, 281);
+            panel16.Location = new Point(587, 292);
             panel16.Name = "panel16";
             panel16.Size = new Size(250, 125);
             panel16.TabIndex = 11;
@@ -647,7 +714,7 @@
             panel14.BackColor = Color.LightGray;
             panel14.Controls.Add(DailyIncomeLbl);
             panel14.Controls.Add(label14);
-            panel14.Location = new Point(218, 281);
+            panel14.Location = new Point(218, 292);
             panel14.Name = "panel14";
             panel14.Size = new Size(250, 125);
             panel14.TabIndex = 11;
@@ -681,7 +748,7 @@
             panel15.BackColor = Color.LightGray;
             panel15.Controls.Add(CustomersLbl);
             panel15.Controls.Add(label10);
-            panel15.Location = new Point(401, 37);
+            panel15.Location = new Point(405, 52);
             panel15.Name = "panel15";
             panel15.Size = new Size(250, 125);
             panel15.TabIndex = 11;
@@ -715,7 +782,7 @@
             panel17.BackColor = Color.LightGray;
             panel17.Controls.Add(BookingsLbl);
             panel17.Controls.Add(label16);
-            panel17.Location = new Point(742, 37);
+            panel17.Location = new Point(746, 52);
             panel17.Name = "panel17";
             panel17.Size = new Size(250, 125);
             panel17.TabIndex = 11;
@@ -749,7 +816,7 @@
             panel13.BackColor = Color.LightGray;
             panel13.Controls.Add(RoomsLbl);
             panel13.Controls.Add(label4);
-            panel13.Location = new Point(56, 37);
+            panel13.Location = new Point(60, 52);
             panel13.Name = "panel13";
             panel13.Size = new Size(250, 125);
             panel13.TabIndex = 10;
@@ -780,7 +847,7 @@
             // 
             // BDateTime
             // 
-            BDateTime.Location = new Point(218, 211);
+            BDateTime.Location = new Point(218, 219);
             BDateTime.Name = "BDateTime";
             BDateTime.Size = new Size(250, 31);
             BDateTime.TabIndex = 9;
@@ -789,7 +856,7 @@
             // CustomerCb
             // 
             CustomerCb.FormattingEnabled = true;
-            CustomerCb.Location = new Point(587, 211);
+            CustomerCb.Location = new Point(587, 219);
             CustomerCb.Name = "CustomerCb";
             CustomerCb.Size = new Size(250, 33);
             CustomerCb.TabIndex = 3;
@@ -827,16 +894,6 @@
             panel12.Name = "panel12";
             panel12.Size = new Size(224, 55);
             panel12.TabIndex = 16;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(165, 7);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(55, 41);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
             // 
             // Dashboard
             // 
@@ -880,6 +937,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             panelLogOut.ResumeLayout(false);
             panelLogOut.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel18.ResumeLayout(false);
             panel18.PerformLayout();
@@ -896,7 +954,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             panel12.ResumeLayout(false);
             panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -953,19 +1010,20 @@
         private Label BookingsLbl;
         private Panel panel18;
         private Label label9;
-        private Label label24;
-        private Label label23;
-        private Label label22;
-        private Label label15;
-        private Label label25;
-        private Label label26;
-        private Label label27;
-        private Label label28;
-        private Label label17;
-        private Label label18;
-        private Label label19;
-        private Label label21;
         private Label label29;
         private PictureBox pictureBox1;
+        private Label label25;
+        private LinkLabel linkLabel1;
+        private LinkLabel TelegramLink;
+        private LinkLabel EmailLinkLbl;
+        private LinkLabel GitHubLinkLbl;
+        private LinkLabel GitLabLink;
+        private Label label17;
+        private LinkLabel InstagramLinkLbl;
+        private LinkLabel FacebookLinkLbl;
+        private LinkLabel VKLinkLbl;
+        private LinkLabel XMailRuLbl;
+        private LinkLabel MailRuLbl;
+        private LinkLabel YouTubeChannelLbl;
     }
 }

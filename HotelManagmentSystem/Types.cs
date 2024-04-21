@@ -122,6 +122,66 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void IdSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from TypeTbl where TypeNum LIKE '%" + IdSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            TypesDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void StatusSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from TypeTbl where TypeName LIKE '%" + StatusSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            TypesDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void CostSearch()
+        {
+            if (Con.State == ConnectionState.Closed)
+                Con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from TypeTbl where TypeCost LIKE '%" + CostSearchTbl.Text + "%'", Con);
+            SqlDataAdapter da = new SqlDataAdapter();
+            var dt = new DataSet();
+            da.SelectCommand = cmd;
+            dt.Clear();
+            da.Fill(dt);
+            TypesDGV.DataSource = dt.Tables[0];
+            Con.Close();
+        }
+
+        private void ClearTypes()
+        {
+            TId.Text = "";
+            TypeNameTb.Text = "";
+            CostTb.Text = "";
+        }
+
+        private void ResetFilter()
+        {
+            IdSearchTbl.Text = "";
+            StatusSearchTbl.Text = "";
+            CostSearchTbl.Text = "";
+            Populate();
+            Con.Close();
+        }
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             InsertCategories();
@@ -184,6 +244,31 @@ namespace HotelManagmentSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearTypes();
+        }
+
+        private void IdSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            IdSearch();
+        }
+
+        private void StatusSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            StatusSearch();
+        }
+
+        private void CostSearchTbl_TextChanged(object sender, EventArgs e)
+        {
+            CostSearch();
+        }
+
+        private void ResetBtn_Click(object sender, EventArgs e)
+        {
+            ResetFilter();
         }
     }
 }

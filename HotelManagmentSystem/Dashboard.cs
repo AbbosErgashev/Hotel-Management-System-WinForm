@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 
 namespace HotelManagmentSystem
 {
@@ -154,6 +155,148 @@ namespace HotelManagmentSystem
             }
         }
 
+        private void LinkedInLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://www.linkedin.com/in/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void EmailLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "mailto:eaxusniddinovich@gmail.com");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void TelegramLinkUser()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://t.me/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void GitHubLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://github.com/AbbosErgashev");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void GitLab()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://gitlab.com/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void InstagramLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://www.instagram.com/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void FacebookLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://www.facebook.com/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void VKLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://vk.com/eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void YouTubeChannelLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "https://youtube.com/@eaxusniddinovich");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void MailRuLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "mailto:eaxusniddinovich@mail.ru");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
+
+        private void XMailRuLink()
+        {
+            try
+            {
+                string edgePath = @"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe";
+                Process.Start(edgePath, "mailto:eaxusniddinovich@xmail.ru");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unable to open link: " + ex.Message);
+            }
+        }
         private void BDateTime_ValueChanged(object sender, EventArgs e)
         {
             SumDaily();
@@ -211,6 +354,61 @@ namespace HotelManagmentSystem
             Login login = new Login();
             login.Show();
             this.Hide();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkedInLink();
+        }
+
+        private void EmailLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EmailLink();
+        }
+
+        private void TelegramLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            TelegramLinkUser();
+        }
+
+        private void GitHubLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GitHubLink();
+        }
+
+        private void GitLabLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GitLab();
+        }
+
+        private void InstagramLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            InstagramLink();
+        }
+
+        private void FacebookLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FacebookLink();
+        }
+
+        private void VKLinkLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VKLink();
+        }
+
+        private void YouTubeChannelLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            YouTubeChannelLink();
+        }
+
+        private void MailRuLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MailRuLink();
+        }
+
+        private void XMailRuLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            XMailRuLink();
         }
     }
 }
